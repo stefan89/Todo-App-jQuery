@@ -214,7 +214,7 @@ function showTodoDetails(todoIdInvoer)
 		    
 	  var html = "<p>Hieronder vind u detailinformatie van de geselecteerde to-do. </p>";
 
-	  html += "<ul data-role=" + "listview" + " class='listviewDetailsTodo'" +" data-inset=" + "true" + " data-theme='b'" + " data-name="+ todoId + " >";
+	  html += "<ul data-role=" + "listview" + " class='listviewDetailsTodo'" +" data-inset=" + "true" + " data-theme='f'" + " data-name="+ todoId + " >";
 	  html += "<li>" + "E-mail persoon: " +  email +"</li>";
       html += "<li>" + "Korte omschrijving: " + korteOmschrijving + "</li>";
 	  html += "<li>" + "Lange omschrijving: " + langeOmschrijving + "</li>";
@@ -312,3 +312,59 @@ $("#pageTodoDetails").live('pageinit', function() {
     });  
 	
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+
+
+$('#map_canvas').gmap().bind('init', function(ev, map) {
+	$('#map_canvas').gmap('addMarker', {'position': '57.7973333,12.0502107', 'bounds': true}).click(function() {
+		$('#map_canvas').gmap('openInfoWindow', {'content': 'Hello World!'}, this);
+	});
+});
+
+
+
+/*
+// In the callback you can use "this" to call a function (e.g. this.get('map') instead of $('#map_canvas').gmap('get', 'map'))
+$('#map_canvas').gmap({'callback': function() {
+	var self = this; // we can't use "this" inside the click function (that refers to the marker object in this example)
+	self.addMarker({'position': '57.7973333,12.0502107', 'bounds': true}).click(function() {
+		self.openInfoWindow({'content': 'Hello World!'}, this);
+	});
+}});
+*/
+/*
+$('#map_canvas').gmap({'some_option':'some_value'}); // Add the contructor
+// addMarker returns a jQuery wrapped google.maps.Marker object 
+var $marker = $('#map_canvas').gmap('addMarker', {'position': '57.7973333,12.0502107', 'bounds': true});
+
+*/
+
+$marker.click(function() {
+	$('#map_canvas').gmap('openInfoWindow', {'content': 'Hello World!'}, this);
+});
+// If you dont add a constructor ($('#map_canvas').gmap({'some_option':'some_value'});) the plugin will auto initialize 
+$('#map_canvas').gmap('addMarker', {'position': '57.7973333,12.0502107', 'bounds': true}).click(function() {
+	$('#map_canvas').gmap('openInfoWindow', {'content': 'Hello World!'}, this);
+});
+
+
+
+
+
+
+
