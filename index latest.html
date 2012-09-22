@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta name="apple-mobile-web-app-capable" content="yes">
+			<meta name="apple-mobile-web-app-status-bar-style" content="black"> <!-- maakt status bar zwart voor iOS devices -->
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<link rel="apple-touch-startup-image" href="https://dl.dropbox.com/u/7454879/startscreenPOC.jpg" media="(max-device-width: 480px)"> <!-- start-up screen for iPhones -->
+			<link rel="stylesheet" type="text/css" href="src/custom/customCssSettings.css"/> <!-- custom css settings -->
+			<link rel="stylesheet" type="text/css" href="src/default/jquery.mobile.simpledialog.min.css"/> <!-- pop-up jQuery plug-in -->
+			<link rel="stylesheet" type="text/css" href="src/default/jquery.mobile-1.1.1.min.css"/> <!-- jQuery mobile -->
+			<link rel="stylesheet" type="text/css" href="src/custom/OrdinaStyle3.min.css"/>  <!-- Custom theme (data-theme="f")-->
+			<link rel="stylesheet" type="text/css" href="src/default/mobiscroll-2.0.3.custom.min.css"/>  <!-- mobiscroll datepicker -->
+			<link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" /> <!-- datepicker jQuery plug-in-->
+			<link rel="stylesheet" type="text/css" href="src/default/jqm-icon-pack-2.1.2-fa.css" /> <!-- custom icons -->
+			
+			<link rel="icon" href="icons/icon32.png">
+			<link rel="shortcut icon" href="src/icons/todoIcon300x300.png">
+			<link rel="apple-touch-icon" href="src/icons/todoIcon300x300.png" sizes="57x57">
+			<link rel="apple-touch-icon" href="src/icons/todoIcon300x300.png" sizes="114x114">
+			
+			<meta charset="utf-8"/>
+			<title>Todo App Stefan</title>
+			<script type="text/javascript" src="src/default/jquery-1.8.2.min.js"></script> <!-- jQuery -->
+			<script type="text/javascript" src="src/custom/initiateDatabase.js"></script> <!-- initiate HTML5 Web SQL local storage -->
+			<script type="text/javascript" src="src/default/jquery.mobile-1.1.1.min.js"></script> <!-- jQuery mobile -->
+			<script type="text/javascript" src="src/default/jquery.mobile.simpledialog.min.js"></script> <!-- pop-up jQuery plug-in -->
+			<script type="text/javascript" src="src/custom/jquery.validate.js"></script>  <!-- validate jQuery plug-in -->
+			<script type="text/javascript" src="src/default/jqm-datebox.core.min.js"></script> <!-- datepicker jQuery plug-in-->
+			<script type="text/javascript" src="src/default/jqm-datebox.mode.calbox.min.js"></script> <!-- datepicker jQuery plug-in-->
+			<script type="text/javascript" src="src/default/mobiscroll.core-2.0.3.js"></script> <!-- mobiscroll datepicker-->
+			<script type="text/javascript" src="src/custom/mobiscroll.core-2.0.3-de.js"></script> <!-- mobiscroll datepicker-->
+			<script type="text/javascript" src="src/default/mobiscroll.datetime-2.0.3.js"></script> <!-- mobiscroll datepicker-->
+			<script type="text/javascript" src="src/custom/mobiscroll.datetime-2.0.3-de.js"></script> <!-- mobiscroll datepicker-->
+			<script type="text/javascript" src="src/default/mobiscroll.jqm-2.0.2.js"></script> <!-- mobiscroll datepicker-->
+		</head>
+	<body>
+	
+	<!------------------------------------------------------------------------------------------------------------------------------------------------->
+	<!--																HOME TAB																	 -->
+	<!------------------------------------------------------------------------------------------------------------------------------------------------->
+	<!-- Home pagina -->
+		<div data-role="page" id="pageHome" data-theme="f">
+			<div data-role="header" data-position="fixed" data-theme="f">
+				<h1>Home</h1>
+				<a href="#pageOver" data-transition="slide" data-icon="info" class="ui-btn-left">Extra info</a>
+				<a href="#pageReset" data-transition="slide" data-icon="gear" class="ui-btn-right">Reset</a>
+			</div>
+			<div data-role="content">
+				<p>
+					Dit is een mobiele app om een to-do (taken) lijst bij te houden voor meerdere personen.
+				</p>
+				<p>
+					Hieronder onzinnige tekst om het scrollen te testen.
+				</p>
+				<p>
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis 
+					natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, 
+					pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, 
+					rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum 
+					semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, 
+					dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam 
+					ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.
+				</p>
+				<p>
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis 
+					natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, 
+					pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, 
+					rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum 
+					semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, 
+					dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam 
+					ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.
+				</p>
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="f">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageHome" data-icon="fahome" class="ui-btn-active ui-state-persist" data-transition="slide">Home</a>
+						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="slide">Personen</a>
+						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="slide">To-do's</a>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+	<!-- Over pagina -->
+		<div data-role="page" id="pageOver" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
+			<div data-role="header" data-position="fixed" data-theme="f">
+				<h1>Over app</h1>
+			</div>
+			<div data-role="content">
+				<div data-role="collapsible-set">
+					<div data-role="collapsible" data-collapsed="true" >
+						<h2>Wat is dit?</h2>
+							<ul>Een to-do lijst app ontwikkeld met jQuery Mobile, jQuery en HTML5 Web SQL Database.</ul>
+					</div>
+					<div data-role="collapsible" data-collapsed="true">
+						<h2>Waarom?</h2>
+						<ul>
+							Om uit te zoeken wat de beste Javascript libraries/frameworks zijn voor mobile software development.
+						</ul>
+					</div>
+					<div data-role="collapsible" data-collapsed="true">
+						<h2>Hoe werkt de app?</h2>
+							<ul>
+								Allereerst dient er een persoon te worden toegevoegd. Voor deze persoon kunnen vervolgens to-do's aangemaakt worden.
+								Het is mogelijk om meerdere personen toe te voegen. Elke persoon kan meerdere to-do's op zijn naam hebben staan.
+								Er kunnen geen to-do's toegevoegd worden als er nog geen persoon is aangemaakt.
+							</ul>
+					</div>
+					<div data-role="collapsible" data-collapsed="true">
+						<h2>Door wie is de app ontwikkeld?</h2>
+							<ul>
+								De app is ontwikkeld door Stefan Collette en fungeert als proof of concept applicatie voor een onderzoek.
+							</ul>
+					</div>
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="f">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageHome" data-icon="fahome" class="ui-btn-active ui-state-persist" data-transition="slide">Home</a>
+						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="slide">Personen</a>
+						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="slide">To-do's</a>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+	<!-- Reset pagina -->
+		<div data-role="page" id="pageReset" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
+			<div data-role="header" data-position="fixed" data-theme="f">
+				<h1>Reset data</h1>
+			</div>
+			<div data-role="content">
+				<p> 
+					Hier kunt u de app resetten naar de default instellingen.<br>
+					De data zal worden verwijderd.
+				</p>
+				<p>
+					<b>Let op:</b> na het resetten dient de app opnieuw opgestart te worden!
+				</p>
+				<p>
+					<a href=# data-role="button" id="buttonResetData"> Reset app </a>	
+				</p>
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="f">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageHome" data-icon="fahome" class="ui-btn-active ui-state-persist" data-transition="slide">Home</a>
+						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="slide">Personen</a>
+						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="slide">To-do's</a>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+	<!------------------------------------------------------------------------------------------------------------------------------------------------->
+	<!--																PERSOON TAB																 	 -->
+	<!------------------------------------------------------------------------------------------------------------------------------------------------->	
+	<!--Persoon hoofd pagina-->
+		<div data-role="page" id="pagePersoonHoofd" data-theme="f">
+			<div data-role="header" data-position="fixed" data-theme="f">
+				<h1>Personen</h1>
+			</div>
+			<div data-role="content">
+				<div data-role="controlgroup">
+					<a href="#pagePersoonToevoeg" data-icon="plus" data-iconpos="right" data-role="button" data-transition="slide">Nieuwe persoon toevoegen</a>
+					<a href="#" data-icon="list" data-iconpos="right" data-role="button" data-transition="slide" onClick="showPersonen()">Bestaande personen</a>
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="f">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageHome" data-icon="fahome" data-transition="slide">Home</a>
+						<li><a href="#pagePersoonHoofd" data-icon="user" class="ui-btn-active ui-state-persist" data-transition="slide">Personen</a>
+						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="slide">To-do's</a>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+	<!-- Persoon toevoeg pagina -->
+		<div data-role="page" id="pagePersoonToevoeg" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
+			<div data-role="header" data-position="fixed" data-theme="f">
+				<h1>Nieuw persoon</h1>
+			</div>
+			<p>
+			<div data-role="content">
+				<p>
+					<b>Voeg hier een nieuwe persoon toe</b>
+				</p>
+				<form id="formPersoon" method="get" action="">
+				<fieldset>
+					<p>
+					<div data-role="fieldcontainer">
+						<label for="voorNaam" ><em>*</em>Voornaam:</label>
+						<input type="text" id="voorNaam" name="voorNaam" "required placeholder="Vul hier de voornaam in.." minlength="2" maxlength="50" class="required"/>
+					</div>
+					</p>
+					<p>
+					<div data-role="fieldcontainer">
+						<label for="achterNaam" >
+						<em>*</em>Achternaam:</label>
+						<input type="text" id="achterNaam" "required placeholder="Vul hier de achternaam in.." minlength="2" value="" maxlength="50" class="required"/>
+					</div>
+					</p>
+					<p>
+					<div data-role="fieldcontainer">
+						<legend><em>*</em>Geslacht:</legend>
+						<div data-role="controlgroup" data-type="horizontal">
+						<input type="radio" name="geslacht" id="geslacht-1" value="Man" checked="checked" />
+						<label for="geslacht-1">Man</label>
+						<input type="radio" name="geslacht" id="geslacht-2" value="Vrouw"  />
+						<label for="geslacht-2">Vrouw</label>
+						</div>
+					</div>
+					</p>
+					<p>
+					<div data-role="fieldcontainer">
+						<label for="geboorteDatum"><em>*</em>Geboortedatum: </label>
+						<input id="geboorteDatum" name="geboorteDatum" "required placeholder="Vul hier de geboortedatum in.." class="required" />
+					</div>
+					</p>
+					<p>				
+					<div data-role="fieldcontainer">
+						<label for="email"><em>*</em>E-mailadres:</label>
+						<input type="email" id="email" name="email" "required placeholder="Vul hier het e-mailadres in.." maxlength="100" class="email required"/>
+					</div>
+					</p>
+					<p>
+					<div data-role="fieldcontainer">
+						<label for="telefoonNummer"><em>  </em>Telefoonnummer:</label>
+						<input type="tel" id="telefoonNummer" name="telefoonNummer" "required placeholder="Vul hier het telefoonnummer in.." maxlength="20"/>
+					</div>
+					</p>
+					<div>
+					    <button class="buttonValidatePersoon" type="submit" value="Submit" data-icon="check" data-iconpos="right">Persoon toevoegen</button>
+						<a id="buttonVoegPersoonToe" href=#></a>
+					</div>
+				</fieldset>					
+				</form>
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="f">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageHome" data-icon="fahome" data-transition="slide">Home</a>
+						<li><a href="#pagePersoonHoofd" data-icon="user" class="ui-btn-active ui-state-persist" data-transition="slide">Personen</a>
+						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="slide">To-do's</a>
+					</ul>
+				</div>
+			</div>
+		</div>	
+		
+	<!-- Persoon lijst pagina -->
+		<div data-role="page" id="pagePersoonLijst" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
+			<div data-role="header" data-position="fixed" data-theme="f">
+				<h1>Personenlijst</h1>
+			</div>
+			<div data-role="content" data-filter="true" data-filter-placeholder="Zoek persoon...">
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="f">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageHome" data-icon="fahome" data-transition="slide">Home</a>
+						<li><a href="#pagePersoonHoofd" data-icon="user" class="ui-btn-active ui-state-persist" data-transition="slide">Personen</a>
+						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="slide">To-do's</a>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+	<!-- Persoon detail pagina -->
+		<div data-role="page" id="pagePersoonDetails" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
+			<div data-role="header" data-position="fixed" data-theme="f">
+				<h1>Persoon details</h1>
+			</div>
+			<div data-role="content">
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="f">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageHome" data-icon="fahome" data-transition="slide">Home</a>
+						<li><a href="#pagePersoonHoofd" data-icon="user" class="ui-btn-active ui-state-persist" data-transition="slide">Personen</a>
+						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="slide">To-do's</a>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+	<!------------------------------------------------------------------------------------------------------------------------------------------------->
+	<!--																TO-DO TAB																	 -->
+	<!------------------------------------------------------------------------------------------------------------------------------------------------->
+	<!-- To-do Hoofd pagina -->
+		<div data-role="page" id="pageTodoHoofd" data-theme="f">
+			<div data-role="header" data-position="fixed" data-theme="f">
+				<h1>To-do's</h1>
+			</div>
+			<div data-role="content">
+				<div data-role="controlgroup">
+					<a href="#pageTodoToevoeg" data-icon="plus" data-iconpos="right" data-role="button"data-transition="slide">Nieuwe to-do toevoegen</a>
+					<a href="#" data-icon="list" data-iconpos="right" data-role="button"data-transition="slide" onClick="showOnderhandenTodos('Alle', 'Onderhanden')">Onderhanden to-do's</a>
+					<a href="#" data-icon="list" data-iconpos="right" data-role="button"data-transition="slide" onClick="showAfgehandeldeTodos('Alle', 'Afgehandeld')">Afgehandelde to-do's</a>
+					<a href="#" data-icon="list" data-iconpos="right" data-role="button"data-transition="slide" onClick="showAlleTodos('Alle', 'Alle')">Alle to-do's</a>
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="f">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageHome" data-icon="fahome" data-transition="slide">Home</a>
+						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="slide">Personen</a>
+						<li><a href="#pageTodoHoofd" data-icon="list-alt" class="ui-btn-active ui-state-persist" data-transition="slide">To-do's</a>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+	<!-- To-do toevoeg pagina -->
+		<div data-role="page" id="pageTodoToevoeg" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
+			<div data-role="header" data-position="fixed" data-theme="f">
+				<h1>Nieuwe to-do</h1>
+			</div>
+			<div data-role="content">
+				<p>
+					<b>Voeg hier een nieuwe to-do toe</b>
+				</p>
+				<form id="formTodo" method="get" action="">
+				<fieldset>
+					<p>
+					<div data-role="fieldcontainer">
+						<label for="selectPersoon" class="select"><em>*</em>Persoon voor wie de to-do is:</label>
+						<select name="selectPersoon" id="selectPersoon" class="required">
+						</select>
+					</div>
+					</p>
+					<p>
+					<div data-role="fieldcontainer">
+						<label for="korteOmschrijving"><em>*</em>Korte omschrijving:</label>
+						<input type="text" id="korteOmschrijving" name="korteOmschrijving" "required placeholder="Vul hier een korte omschrijving in.." minlength="2" maxlength="100" class="required"/>
+					</div>			
+					
+					</p>
+					<p>
+					<div data-role="fieldcontainer">
+						<label for="langeOmschrijving">Lange omschrijving:</label>
+						<textarea name="langeOmschrijving" id="langeOmschrijving" "required placeholder="Vul hier een lange omschrijving in.." maxlength="2000"></textarea>
+					</div>
+					</p>
+					<p>
+					<div data-role="fieldcontainer">
+						<label for="datumOplevering"><em>*</em>Datum oplevering:</label>
+						<input name="datumOplevering" id="datumOplevering" type="date" data-role="datebox" class="required"
+						data-options='{"mode": "calbox", "afterToday": true, "useImmediate":true, "useButton": false, "useFocus": true, "useInlineBlind": true, "overrideDateFormat": "%d-%m-%Y", "overrideDateFieldOrder": ["d", "m", "y"], "calShowWeek": true }'>
+					</div>
+					</p>
+					<p>
+					<div data-role="fieldcontainer">
+						<label for="urgentie"><em>*</em>Urgentie: </label>
+						<input type="range" id="urgentie" name="urgentie" min="1" max="3" value="2" class="required"/>
+					</div>
+					</p>
+					<p>
+					<div data-role="fieldcontainer">
+						<label for="plaats"><em>*</em>Plaats oplevering:</label>
+						<input type="text" id="plaats" name="plaats" "required placeholder="Plaats oplevering.." maxlength="100" class="required"/>
+					</div>
+					</p>
+					<p>
+					<div data-role="fieldcontainer">
+					<label for="type"><em>*</em>Prive of zakelijke to-do?</label>
+						<select id="type" name="type" data-role="slider">
+						<option value="Prive">Prive</option>
+						<option value="Zakelijk">Zakelijk</option>
+						</select>
+					</div>	
+					</p>
+					
+					<div>
+						<button class="buttonValidateTodo" type="submit" value="Submit" data-icon="check" data-iconpos="right">To-do toevoegen</button>
+						<a id="buttonVoegTodoToe" href=#  ></a>
+					</div>
+				</fieldset>					
+				</form>
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="f">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageHome" data-icon="fahome" data-transition="slide">Home</a>
+						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="slide">Personen</a>
+						<li><a href="#pageTodoHoofd" data-icon="list-alt" class="ui-btn-active ui-state-persist" data-transition="slide">To-do's</a>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+	<!-- To-do lijst pagina - onderhanden -->
+		<div data-role="page" id="pageTodoLijstOnderhanden" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
+			<div data-role="header" data-position="fixed" data-theme="f">
+				<h1>Onderhanden To-do's</h1>
+				<div id="navgroup">
+					<div data-role="controlgroup" data-type="horizontal">
+					<a href="#" id=buttonAllTodosWeergeven data-role="button"data-transition="slide">Alle</a>
+					<a href="#" id=buttonPriveTodosWeergeven data-role="button"data-transition="slide">Prive</a>
+					<a href="#" id=buttonZakelijkeTodosWeergeven data-role="button"data-transition="slide">Zakelijk</a>
+					</div>
+				</div>	<!--
+				<div id="navgroup">
+						<select name="selectPersoon" id="selectPersoon" class="required">
+							<option>Alle personen...</option>
+						</select>
+				</div>-->
+			</div>
+			<div data-role="content">
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="f">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageHome" data-icon="fahome" data-transition="slide">Home</a>
+						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="slide">Personen</a>
+						<li><a href="#pageTodoHoofd" data-icon="list-alt" class="ui-btn-active ui-state-persist" data-transition="slide">To-do's</a>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+	<!-- To-do detail pagina -->
+		<div data-role="page" id="pageTodoDetails" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
+			<div data-role="header" data-position="fixed" data-theme="f">
+				<h1>To-do details</h1>
+				<div id="navgroup">
+						<a id="buttonVerwijderTodo" href="#" data-role="button" data-iconpos="right" data-icon="delete">Verwijder to-do</a>
+						<a id="buttonWijzigTodo" href="#" data-role="button" data-iconpos="right" data-icon="edit">Wijzig to-do</a>
+				</div>	
+			</div>
+			<div data-role="content">
+				<div>
+					<a id="buttonOpenPlaats" href="#pageTodoMaps" data-role="button" data-iconpos="right" data-icon="map-marker">Open plaats van oplevering</a>
+					<a id="buttonTodoAfgehandeld" href="#" data-role="button" data-iconpos="right" data-icon="facheck">To-do afgehandeld</a>
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="f">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageHome" data-icon="fahome" data-transition="slide">Home</a>
+						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="slide">Personen</a>
+						<li><a href="#pageTodoHoofd" data-icon="list-alt" class="ui-btn-active ui-state-persist" data-transition="slide">To-do's</a>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+	<!-- To-do Maps pagina -->
+		<div data-role="page" id="pageTodoMaps" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
+			<div data-role="header" data-position="fixed" data-theme="f">
+				<h1>To-do Maps</h1>
+			</div>
+			<div data-role="content">
+				<img src="https://maps.googleapis.com/maps/api/staticmap?center=Nieuwegein&amp;zoom=11&amp;size=288x300&amp;markers=Nieuwegein&amp;sensor=false" width="288" height="300" />
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="f">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageHome" data-icon="fahome" data-transition="slide">Home</a>
+						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="slide">Personen</a>
+						<li><a href="#pageTodoHoofd" data-icon="list-alt" class="ui-btn-active ui-state-persist" data-transition="slide">To-do's</a>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="src/custom/allTabs.js" type="text/javascript"></script>
+<script src="src/custom/homeTab.js" type="text/javascript"></script>
+<script src="src/custom/persoonTab.js" type="text/javascript"></script>
+<script src="src/custom/todoTab.js" type="text/javascript"></script>
