@@ -99,8 +99,8 @@ function showTodos(statusInvoer, typeInvoer)
 			
 			  html +="<li data-theme='c'" + "data-name="+ todoId + " class='listItemOnderhandenTodo'>" 
 			  html += "<h3><strong>" + korteOmschrijving + "</strong></h3>" + "<a href='#'>";
-			  html += "<p> Type: <strong>" + type + "</strong></p>";
 			  html += "<p> Email persoon: <strong>" + email + "</strong></p>";
+			  html += "<p> Type: <strong>" + type + "</strong> - Status:<strong>  "+ status +"</strong></p>";
 			  html += "<p> Urgentie: <strong>" + urgentie + "</strong></p>";
 			  html += "<p>Datum: <strong>" + datum + "</strong></p>";
 			  html += "</a></li>";
@@ -216,8 +216,8 @@ function refreshOnderhoudenTodoList(typeInvoer, statusInvoer)
 			
 			  html += "<li data-theme='c'" + "data-name="+ todoId + " class='listItemOnderhandenTodo'>"; 
 			  html += "<h3><strong>" + korteOmschrijving + "</strong></h3>" + "<a href='#'>";
-			  html += "<p> Type: <strong>" + type + "</strong></p>";
 			  html += "<p> Email persoon: <strong>" + email + "</strong></p>";
+			  html += "<p> Type: <strong>" + type + "</strong> - Status:<strong>  "+ status +"</strong></p>";
 			  html += "<p> Urgentie: <strong>" + urgentie + "</strong></p>";
 			  html += "<p>Datum: <strong>" + datum + "</strong></p>";
 			  html += "</a></li>";
@@ -284,6 +284,18 @@ function showTodoDetails(todoIdInvoer)
         content.html (html);
 		content.append(buttonOpenPlaats);
 		content.append(buttonTodoAfgehandeld);
+		
+		if(status === "Afgehandeld"){
+			$("#buttonTodoAfgehandeld").hide();
+			$("#buttonVerwijderTodo").hide();
+			$("#buttonWijzigTodo").hide();
+		}
+		else{
+			$("#buttonTodoAfgehandeld").show();
+			$("#buttonVerwijderTodo").show();
+			$("#buttonWijzigTodo").show();
+		}
+		
         var ul = content.find ("ul");
         ul.listview ();
       });
