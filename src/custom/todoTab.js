@@ -51,19 +51,30 @@ $("#buttonVoegTodoToe").bind ("click", function (event) //Todo toevoegen
     {
 		alert ("Todo toegevoegd");
     }, error);
-		showOnderhandenTodos("Alle");
+		showTodos("Onderhanden", "Alle");
 	});
 });
 
 	
-function showOnderhandenTodos(typeInvoer)
+function showTodos(statusInvoer, typeInvoer)
 {
-	//$('#buttonAllTodosWeergeven').trigger('click');      NIET VERWIJDEREN - nog uitzoeken of dit wel beste manier of is deze uncommenten en onderstaande 3 regels commenten.
+	var sql = ""; 
+				
+	if(statusInvoer === "Onderhanden" && typeInvoer === "Alle"){
+		sql = "SELECT * FROM todo where status = 'Onderhanden' order by datum";
+	}
+
+	if(statusInvoer === "Afgehandelde" && typeInvoer === "Alle"){
+		sql = "SELECT * FROM todo where status = 'Afgehandeld' order by datum";
+	}
+
+	if(statusInvoer === "Alle" && typeInvoer === "Alle"){
+		sql = "SELECT * FROM todo order by datum";
+	}
+
 	$("#buttonAllTodosWeergeven").addClass('ui-btn-active');
 	$("#buttonPriveTodosWeergeven").removeClass('ui-btn-active');
 	$("#buttonZakelijkeTodosWeergeven").removeClass('ui-btn-active');
-	
-	var sql = "SELECT * FROM todo where status = 'Onderhanden' order by datum"; 
 			
 	db.transaction (function (transaction) 
 	{
@@ -71,7 +82,7 @@ function showOnderhandenTodos(typeInvoer)
 
 		function (transaction, result)
 		{
-		  var html = '<ul id="OnderhandenTodoListview " data-role="listview" + " class="OnderhoudenListView" + data-filter="true" + " data-filter-placeholder="Zoek to-do..." >';
+		  var html = '<ul id="OnderhandenTodoListview " data-role="listview" + " class="OnderhoudenListView" + data-filter="true" + " data-filter-placeholder="Zoek to-do..." + data-name=' + statusInvoer + '>';
 		  
 		  if (result.rows.length) 
 		  {
@@ -88,7 +99,7 @@ function showOnderhandenTodos(typeInvoer)
 			
 			  html +="<li data-theme='c'" + "data-name="+ todoId + " class='listItemOnderhandenTodo'>" 
 			  html += "<h3><strong>" + korteOmschrijving + "</strong></h3>" + "<a href='#'>";
-			  html += "<p> Type: <strong>" + type + "</strong></p>";//html += "<p class='ui-li-aside'><strong>" + datum + "</strong></p>";
+			  html += "<p> Type: <strong>" + type + "</strong></p>";
 			  html += "<p> Email persoon: <strong>" + email + "</strong></p>";
 			  html += "<p> Urgentie: <strong>" + urgentie + "</strong></p>";
 			  html += "<p>Datum: <strong>" + datum + "</strong></p>";
@@ -97,10 +108,20 @@ function showOnderhandenTodos(typeInvoer)
 		  }
 		  else 
 		  {
-			html += "<li> Geen onderhanden todo's gevonden </li>";
+			html += "<li> Geen todo's gevonden met deze status en type </li>";
 		  }
 		  html += "</ul>";
-		  refreshPage(html,"#pageTodoLijstOnderhanden");
+		  	  
+		  $("#pageTodoLijst").unbind ().bind ("pagebeforeshow", function ()
+		  {
+			$("#pageTodoLijstH1").html(statusInvoer +" todo's");
+			var content = $("#pageTodoLijst div:jqmData(role=content)");
+			content.html (html);
+			var ul = content.find ("ul");
+			ul.listview ();
+		  });
+			$.mobile.changePage ($("#pageTodoLijst"), { transition: "slide"});
+		  
 		}, error);
   });
 }
@@ -108,41 +129,70 @@ function showOnderhandenTodos(typeInvoer)
 	
 $("#buttonAllTodosWeergeven").bind("click", function ()
 {
-		refreshOnderhoudenTodoList("Alle");
+		var status = $(".OnderhoudenListView").attr('data-name');
+		refreshOnderhoudenTodoList("Alle", status);
 		$(this).addClass('ui-btn-active');
 		$("#buttonPriveTodosWeergeven").removeClass('ui-btn-active');
 		$("#buttonZakelijkeTodosWeergeven").removeClass('ui-btn-active');
 });
 $("#buttonPriveTodosWeergeven").bind("click", function ()
-{
-		refreshOnderhoudenTodoList("Prive");
+{		
+		var status = $(".OnderhoudenListView").attr('data-name');
+		refreshOnderhoudenTodoList("Prive", status);
 		$(this).addClass('ui-btn-active');
 		$("#buttonAllTodosWeergeven").removeClass('ui-btn-active');
 		$("#buttonZakelijkeTodosWeergeven").removeClass('ui-btn-active');
 });	
 $("#buttonZakelijkeTodosWeergeven").bind("click", function ()
 {
-		refreshOnderhoudenTodoList("Zakelijk");
+		var status = $(".OnderhoudenListView").attr('data-name');
+		refreshOnderhoudenTodoList("Zakelijk", status);
 		$(this).addClass('ui-btn-active');
 		$("#buttonAllTodosWeergeven").removeClass('ui-btn-active');
 		$("#buttonPriveTodosWeergeven").removeClass('ui-btn-active');
 });	
 	
 
-function refreshOnderhoudenTodoList(typeInvoer)
+function refreshOnderhoudenTodoList(typeInvoer, statusInvoer)
 {	
-	if(typeInvoer === "Alle"){
+	var sql = ""; 
+				
+	if(statusInvoer === "Onderhanden" && typeInvoer === "Alle"){
 		sql = "SELECT * FROM todo where status = 'Onderhanden' order by datum";
 	}
 	
-	if(typeInvoer === "Prive"){
+	if(statusInvoer === "Onderhanden" && typeInvoer === "Prive"){
 		sql = "SELECT * FROM todo where status = 'Onderhanden' and type = 'Prive' order by datum";
 	}
 	
-	if(typeInvoer === "Zakelijk"){
+	if(statusInvoer === "Onderhanden" && typeInvoer === "Zakelijk"){
 		sql = "SELECT * FROM todo where status = 'Onderhanden' and type = 'Zakelijk' order by datum";
 	}
-			
+	
+	if(statusInvoer === "Afgehandelde" && typeInvoer === "Alle"){
+		sql = "SELECT * FROM todo where status = 'Afgehandeld' order by datum";
+	}
+	
+	if(statusInvoer === "Afgehandelde" && typeInvoer === "Prive"){
+		sql = "SELECT * FROM todo where status = 'Afgehandeld' and type = 'Prive' order by datum";
+	}
+	
+	if(statusInvoer === "Afgehandelde" && typeInvoer === "Zakelijk"){
+		sql = "SELECT * FROM todo where status = 'Afgehandeld' and type = 'Zakelijk' order by datum";
+	}
+	
+	if(statusInvoer === "Alle" && typeInvoer === "Alle"){
+		sql = "SELECT * FROM todo order by datum";
+	}
+	
+	if(statusInvoer === "Alle" && typeInvoer === "Prive"){
+		sql = "SELECT * FROM todo where type = 'Prive' order by datum";
+	}
+	
+	if(statusInvoer === "Alle" && typeInvoer === "Zakelijk"){
+		sql = "SELECT * FROM todo where type = 'Zakelijk' order by datum";
+	}
+				
 	db.transaction (function (transaction) 
 	{
 	transaction.executeSql (sql, undefined, 
@@ -175,7 +225,7 @@ function refreshOnderhoudenTodoList(typeInvoer)
 		  }
 		  else 
 		  {
-			html += "<li> Geen onderhanden todo's gevonden </li>";
+			html += "<li> Geen todo's gevonden met deze status en type </li>";
 		  }
 			$('.OnderhoudenListView').html(html);
 			$(".OnderhoudenListView").listview('refresh');
@@ -185,7 +235,7 @@ function refreshOnderhoudenTodoList(typeInvoer)
 
 
 
-$("#pageTodoLijstOnderhanden").live('pageinit', function() {   //Haalt value van clicked listitem op
+$("#pageTodoLijst").live('pageinit', function() {   //Haalt value van clicked listitem op
     $('.listItemOnderhandenTodo').live('vclick', function(e) {
 		 showTodoDetails($(this).attr('data-name'));
     });  
@@ -264,7 +314,7 @@ $("#pageTodoDetails").live('pageinit', function() {
 									
 						transaction.executeSql (sql, undefined, ok, error);
 					});
-					showOnderhandenTodos('Alle', 'Onderhanden');
+					showTodos('Alle', 'Alle');
 				},
 				theme: "c"
 			  },
@@ -296,7 +346,7 @@ $("#pageTodoDetails").live('pageinit', function() {
 									
 						transaction.executeSql (sql, undefined, ok, error);
 					});
-					showOnderhandenTodos('Alle', 'Onderhanden');
+					showTodos('Afgehandelde', 'Alle');
 				},
 				theme: "c"
 			  },
@@ -310,7 +360,6 @@ $("#pageTodoDetails").live('pageinit', function() {
 			}
 		  });
     }); 
-
 
 	$('#buttonOpenPlaats').live('vclick', function(event) { // Open Google maps view
 		var plaatsInvoer = $(".listviewDetailsTodo").attr('data-name2');
@@ -330,5 +379,3 @@ $("#pageTodoDetails").live('pageinit', function() {
 		 $.mobile.changePage ($('#pageTodoMaps'), { transition: "slide"});
 	}); 
 });
-
-

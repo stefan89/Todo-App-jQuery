@@ -6,9 +6,7 @@ function refreshPage(htmlInvoer, pageInvoer) //refresh the page when data is col
         var content = $(pageInvoer + " div:jqmData(role=content)");
         content.html (htmlInvoer);
         var ul = content.find ("ul");
-		
         ul.listview();
-		
       });
       $.mobile.changePage ($(pageInvoer), { transition: "slide"});
 }

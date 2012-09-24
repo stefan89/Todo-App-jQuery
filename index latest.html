@@ -7,16 +7,16 @@
 			<meta charset="utf-8"/>
 			<title>Todo App Stefan</title>
 			<link rel="apple-touch-startup-image"  href="https://dl.dropbox.com/u/7454879/startscreenPOC.jpg" media="(max-device-width: 480px)"> <!-- start-up screen for iPhones -->
-			<link rel="stylesheet" type="text/css" href="src/custom/customCssSettings.css"/> <!-- custom css settings -->
-			<link rel="stylesheet" type="text/css" href="src/default/jquery.mobile.simpledialog.min.css"/> <!-- pop-up jQuery plug-in -->
-			<link rel="stylesheet" type="text/css" href="src/default/jquery.mobile-1.1.1.min.css"/> <!-- jQuery mobile -->
-			<link rel="stylesheet" type="text/css" href="src/custom/OrdinaStyle3.min.css"/>  <!-- Custom theme (data-theme="f")-->
-			<link rel="stylesheet" type="text/css" href="src/default/mobiscroll-2.0.3.custom.min.css"/>  <!-- mobiscroll datepicker -->
-			<link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" /> <!-- datepicker jQuery plug-in-->
-			<link rel="stylesheet" type="text/css" href="src/default/jqm-icon-pack-2.1.2-fa.css" /> <!-- custom icons -->
 			<link rel="shortcut icon" 	 href="src/icons/todoIcon300x300.png">
 			<link rel="apple-touch-icon" href="src/icons/todoIcon300x300.png" sizes="57x57">
 			<link rel="apple-touch-icon" href="src/icons/todoIcon300x300.png" sizes="114x114">
+			<link rel="stylesheet" type="text/css" href="src/default/jquery.mobile-1.1.1.min.css"/> <!-- jQuery mobile -->
+			<link rel="stylesheet" type="text/css" href="src/custom/OrdinaStyle3.min.css"/>  <!-- Custom theme (data-theme="f")-->
+			<link rel="stylesheet" type="text/css" href="src/custom/customCssSettings.css"/> <!-- custom css settings -->
+			<link rel="stylesheet" type="text/css" href="src/default/jquery.mobile.simpledialog.min.css"/> <!-- pop-up jQuery plug-in -->
+			<link rel="stylesheet" type="text/css" href="src/default/mobiscroll-2.0.3.custom.min.css"/>  <!-- mobiscroll datepicker -->
+			<link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" /> <!-- datepicker jQuery plug-in-->
+			<link rel="stylesheet" type="text/css" href="src/default/jqm-icon-pack-2.1.2-fa.css" /> <!-- custom icons -->
 			<script type="text/javascript" src="src/default/jquery-1.8.2.min.js"></script> <!-- jQuery -->
 			<script type="text/javascript" src="src/custom/initiateDatabase.js"></script> <!-- initiate HTML5 Web SQL local storage -->
 			<script type="text/javascript" src="src/default/jquery.mobile-1.1.1.min.js"></script> <!-- jQuery mobile -->
@@ -329,9 +329,9 @@
 			<div data-role="content">
 				<div data-role="controlgroup">
 					<a href="#pageTodoToevoeg" data-icon="plus" data-iconpos="right" data-role="button"data-transition="slide">Nieuwe to-do toevoegen</a>
-					<a href="#" data-icon="list" data-iconpos="right" data-role="button"data-transition="slide" onClick="showOnderhandenTodos('Alle', 'Onderhanden')">Onderhanden to-do's</a>
-					<a href="#" data-icon="list" data-iconpos="right" data-role="button"data-transition="slide" onClick="showAfgehandeldeTodos('Alle', 'Afgehandeld')">Afgehandelde to-do's</a>
-					<a href="#" data-icon="list" data-iconpos="right" data-role="button"data-transition="slide" onClick="showAlleTodos('Alle', 'Alle')">Alle to-do's</a>
+					<a href="#" data-icon="list" data-iconpos="right" data-role="button"data-transition="slide" onClick="showTodos('Onderhanden', 'Alle')">Onderhanden to-do's</a>
+					<a href="#" data-icon="list" data-iconpos="right" data-role="button"data-transition="slide" onClick="showTodos('Afgehandelde', 'Alle')">Afgehandelde to-do's</a>
+					<a href="#" data-icon="list" data-iconpos="right" data-role="button"data-transition="slide" onClick="showTodos('Alle', 'Alle')">Alle to-do's</a>
 				</div>
 			</div>
 			<div data-role="footer" data-position="fixed" data-theme="f">
@@ -424,10 +424,10 @@
 		</div>
 		
 	<!-- To-do lijst pagina - onderhanden -->
-		<div data-role="page" id="pageTodoLijstOnderhanden" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
+		<div data-role="page" id="pageTodoLijst" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
 			<div data-role="header" data-position="fixed" data-theme="f">
-				<h1>Onderhanden To-do's</h1>
-				<div id="navgroup">
+				<h1 id="pageTodoLijstH1"></h1>
+				<div id="navgroup" class="pageTodoLijstNavgroup">
 					<div data-role="controlgroup" data-type="horizontal">
 					<a href="#" id=buttonAllTodosWeergeven data-role="button"data-transition="slide">Alle</a>
 					<a href="#" id=buttonPriveTodosWeergeven data-role="button"data-transition="slide">Prive</a>
@@ -482,7 +482,7 @@
 	<!-- To-do Maps pagina -->
 		<div data-role="page" id="pageTodoMaps" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
 			<div data-role="header" data-position="fixed" data-theme="f">
-				<h1>To-do Maps</h1>
+				<h1>Plaats oplevering</h1>
 			</div>
 			<div data-role="content">
 				<div class="ui-bar-c ui-corner-all ui-shadow" style="padding:1em;">
