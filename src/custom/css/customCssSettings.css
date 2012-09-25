@@ -2,12 +2,7 @@
 #navgroup {text-align:center;}
 #navgroup div {display:inline-block;}
 
-/* Header and toolbar niet laten verdwijnen wanneer er wordt getapped in het content pane  
-$("[data-role=header]").fixedtoolbar({ tapToggle: false });
-$("[data-role=footer]").fixedtoolbar({ tapToggle: false });
-
-			*/
-	
+/* Zorgt voor melding bij fout in validatie  */
 label.error {
     color: red;
     font-size: 16px;

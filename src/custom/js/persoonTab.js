@@ -11,7 +11,7 @@ $(function(){  //mobiscroll datepicker
 		lang: 'de',
 		maxDate: maximaleDatum
     });    
-});		
+});
 
 
 
@@ -45,7 +45,7 @@ $("#buttonVoegPersoonToe").bind ("click", function (event)
 
 
 
-function showPersonen() 
+function showPersonen()
 {
   db.transaction (function (transaction) 
   {
