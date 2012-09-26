@@ -1,15 +1,7 @@
 $(function(){  //mobiscroll datepicker
 	var datumVandaag = new Date(); 
     var maximaleDatum = new Date(datumVandaag.getFullYear()-18, datumVandaag.getMonth(), datumVandaag.getDate());
-    
-	$('#geboorteDatum').scroller({
-        preset: 'date',
-        theme: 'default',
-        display: 'modal',
-        mode: 'scroller',
-		dateOrder: 'yy mm dd',
-		lang: 'de',
-		maxDate: maximaleDatum
+	$('#geboorteDatum').scroller({preset: 'date', theme: 'default', display: 'modal', mode: 'scroller', dateOrder: 'yy mm dd', lang: 'de', maxDate: maximaleDatum
     });    
 });
 
@@ -20,8 +12,6 @@ $( "#formPersoon" ).validate({
 		$('#buttonVoegPersoonToe').trigger('click');
     }
 });
-
-
 
 $("#buttonVoegPersoonToe").bind ("click", function (event)
 {

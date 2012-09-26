@@ -160,11 +160,10 @@
 			</div>
 			<div data-role="content">
 				<p> 
-					Hier kunt u de app resetten naar de default instellingen.<br>
-					De data zal worden verwijderd.
+					Hier kunt u de app resetten naar de default instellingen.
 				</p>
-				<p>
-					<b>Let op:</b> na het resetten dient de app opnieuw opgestart te worden!
+				<p> 
+					<b>Let op:</b> alle data zal worden verwijderd.
 				</p>
 				<p>
 					<a href=# data-role="button" id="buttonResetData"> Reset app </a>	
@@ -499,6 +498,25 @@
 				</div>
 			</div>
 		</div>
+		
+		<!-- To-do Wijzig pagina -->
+		<div data-role="page" id="pageTodoWijzig" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
+			<div data-role="header" data-position="fixed" data-theme="f">
+				<h1>Wijzig to-do</h1>
+			</div>
+			<div data-role="content">
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="f">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageHome" data-icon="fahome" data-transition="slide">Home</a>
+						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="slide">Personen</a>
+						<li><a href="#pageTodoHoofd" data-icon="list-alt" class="ui-btn-active ui-state-persist" data-transition="slide">To-do's</a>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
 	</body>
 </html>
 <script src="src/custom/js/allTabs.js" type="text/javascript"></script>

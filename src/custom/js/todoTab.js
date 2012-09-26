@@ -19,7 +19,6 @@ $("#pageTodoToevoeg").live('pageinit', function()
 				$('#selectPersoon').append('<option value="'+ email + '" class="dropDownBlk">'+ voorNaam + " " + achterNaam +'</option>');
 			}
 		}
-		//refresh select menu
 		$("#selectPersoon").selectmenu('refresh', true); 
     }, error);
   });
@@ -312,10 +311,7 @@ $("#pageTodoDetails").live('pageinit', function() {
 	$('#buttonVerwijderTodo').live('vclick', function(event) {  // VERWIJDER SPECIFIEKE TO-DO
 		 var todoId = $(".listviewDetailsTodo").attr('data-name'); //Haalt value van te verwijderen todo op (detailView)
 		 
-		 $(this).simpledialog({
-			'mode' : 'bool',
-			'prompt' : 'Zeker?',
-			'useModal': true,
+		 $(this).simpledialog({'mode' : 'bool', 'prompt' : 'Zeker?', 'useModal': true,
 			'buttons' : {
 			  'Ja': {
 				click: function () {
@@ -344,10 +340,7 @@ $("#pageTodoDetails").live('pageinit', function() {
 	$('#buttonTodoAfgehandeld').live('vclick', function(event) { // Wijzig status van to-do naar afgehandeld
 		 var todoId = $(".listviewDetailsTodo").attr('data-name'); //Haalt value van te verwijderen todo op (detailView)
 		 
-		 $(this).simpledialog({
-			'mode' : 'bool',
-			'prompt' : 'To-do afgehandeld?',
-			'useModal': true,
+		 $(this).simpledialog({'mode' : 'bool', 'prompt' : 'To-do afgehandeld?', 'useModal': true,
 			'buttons' : {
 			  'Ja': {
 				click: function () {
@@ -374,14 +367,12 @@ $("#pageTodoDetails").live('pageinit', function() {
     }); 
 
 	$('#buttonOpenPlaats').live('vclick', function(event) { // Open Google maps view
-		var plaatsInvoer = $(".listviewDetailsTodo").attr('data-name2');
-		 		
+		var plaatsInvoer = $(".listviewDetailsTodo").attr('data-name2');	
 		$("#pageTodoMaps").unbind ().bind ("pagebeforeshow", function ()
 		{
 			$('#map_canvas').gmap('search', { 'address': plaatsInvoer}, function(results, status) {
 				if ( status === 'OK' ) {
 							$('#map_canvas').gmap('get', 'map').panTo(results[0].geometry.location);
-							//var $marker = $('#map_canvas').gmap('addMarker', {'address': 'Barcelona', 'bounds': true});
 							var zoom= $('#map_canvas').gmap('option', 'zoom');
 							$('#map_canvas').gmap('option', 'zoom', 12);
 							$('#map_canvas').gmap('refresh');

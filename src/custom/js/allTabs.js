@@ -1,6 +1,5 @@
-function refreshPage(htmlInvoer, pageInvoer) //refresh the page when data is collected
+function refreshPage(htmlInvoer, pageInvoer) //refresh the page when data is collected    	//Pagina opbouw veranderen en tonen
 {
-   	//Pagina opbouw veranderen en tonen
       $(pageInvoer).unbind ().bind ("pagebeforeshow", function ()
       {
         var content = $(pageInvoer + " div:jqmData(role=content)");
