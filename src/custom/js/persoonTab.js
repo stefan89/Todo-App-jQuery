@@ -28,8 +28,8 @@ $("#buttonVoegPersoonToe").bind ("click", function (event)
     transaction.executeSql (sql, [voorNaam, achterNaam, geslacht, geboorteDatum, email, telefoonNummer], function ()
     { 
       alert ("Persoon toegevoegd");
+	  showPersonen();
     }, error);
-	showPersonen();
   });
 });
 
@@ -39,7 +39,7 @@ function showPersonen()
 {
   db.transaction (function (transaction) 
   {
-    var sql = "SELECT * FROM persoon order by achterNaam";
+    var sql = "SELECT * FROM persoon order by UPPER(achterNaam)";
     transaction.executeSql (sql, undefined, 
     
 	function (transaction, result)

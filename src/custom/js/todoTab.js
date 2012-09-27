@@ -48,8 +48,8 @@ $("#buttonVoegTodoToe").bind ("click", function (event) //Todo toevoegen
 		transaction.executeSql (sql, [korteOmschrijving, langeOmschrijving, datum, status, urgentie, type, plaatsOplevering, email], function ()
     {
 		alert ("Todo toegevoegd");
-    }, error);
 		showTodos("Onderhanden", "Alle");
+    }, error);
 	});
 });
 
@@ -75,8 +75,8 @@ $("#buttonWijzigTodoToe").bind ("click", function (event) //Todo wijzigen
 		transaction.executeSql (sql, [korteOmschrijving, langeOmschrijving, datum, urgentie, plaatsOplevering, type, todoId], function()
     {
 		alert ("Todo Gewijzigd");
-    }, error);
 		showTodos("Onderhanden", "Alle");
+    }, error);
 	});
 });
 
@@ -84,18 +84,20 @@ $("#buttonWijzigTodoToe").bind ("click", function (event) //Todo wijzigen
 
 function showTodos(statusInvoer, typeInvoer)
 {
+	
+
 	var sql = ""; 
 				
 	if(statusInvoer === "Onderhanden" && typeInvoer === "Alle"){
-		sql = "SELECT * FROM todo where status = 'Onderhanden' order by datum";
+		sql = "SELECT * FROM todo where status = 'Onderhanden' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
 	}
-
+;
 	if(statusInvoer === "Afgehandelde" && typeInvoer === "Alle"){
-		sql = "SELECT * FROM todo where status = 'Afgehandeld' order by datum";
+		sql = "SELECT * FROM todo where status = 'Afgehandeld' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
 	}
 
 	if(statusInvoer === "Alle" && typeInvoer === "Alle"){
-		sql = "SELECT * FROM todo order by datum";
+		sql = "SELECT * FROM todo order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
 	}
 
 	$("#buttonAllTodosWeergeven").addClass('ui-btn-active');
@@ -109,6 +111,8 @@ function showTodos(statusInvoer, typeInvoer)
 		function (transaction, result)
 		{
 		  var html = '<ul id="OnderhandenTodoListview " data-role="listview" + " class="OnderhoudenListView" + data-filter="true" + " data-filter-placeholder="Zoek to-do..." + data-name=' + statusInvoer + '>';
+		  //alert("hoi");
+		  //alert(SELECT STR_TO_DATE('May 1, 2013','%M %d,%Y'));
 		  
 		  if (result.rows.length) 
 		  {
@@ -130,6 +134,7 @@ function showTodos(statusInvoer, typeInvoer)
 			  html += "<p> Urgentie: <strong>" + urgentie + "</strong></p>";
 			  html += "<p>Datum: <strong>" + datum + "</strong></p>";
 			  html += "</a></li>";
+				
 			}
 		  }
 		  else 
@@ -184,39 +189,39 @@ function refreshOnderhoudenTodoList(typeInvoer, statusInvoer)
 	var sql = ""; 
 				
 	if(statusInvoer === "Onderhanden" && typeInvoer === "Alle"){
-		sql = "SELECT * FROM todo where status = 'Onderhanden' order by datum";
+		sql = "SELECT * FROM todo where status = 'Onderhanden' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
 	}
 	
 	if(statusInvoer === "Onderhanden" && typeInvoer === "Prive"){
-		sql = "SELECT * FROM todo where status = 'Onderhanden' and type = 'Prive' order by datum";
+		sql = "SELECT * FROM todo where status = 'Onderhanden' and type = 'Prive' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
 	}
 	
 	if(statusInvoer === "Onderhanden" && typeInvoer === "Zakelijk"){
-		sql = "SELECT * FROM todo where status = 'Onderhanden' and type = 'Zakelijk' order by datum";
+		sql = "SELECT * FROM todo where status = 'Onderhanden' and type = 'Zakelijk' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
 	}
 	
 	if(statusInvoer === "Afgehandelde" && typeInvoer === "Alle"){
-		sql = "SELECT * FROM todo where status = 'Afgehandeld' order by datum";
+		sql = "SELECT * FROM todo where status = 'Afgehandeld' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
 	}
 	
 	if(statusInvoer === "Afgehandelde" && typeInvoer === "Prive"){
-		sql = "SELECT * FROM todo where status = 'Afgehandeld' and type = 'Prive' order by datum";
+		sql = "SELECT * FROM todo where status = 'Afgehandeld' and type = 'Prive' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
 	}
 	
 	if(statusInvoer === "Afgehandelde" && typeInvoer === "Zakelijk"){
-		sql = "SELECT * FROM todo where status = 'Afgehandeld' and type = 'Zakelijk' order by datum";
+		sql = "SELECT * FROM todo where status = 'Afgehandeld' and type = 'Zakelijk' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
 	}
 	
 	if(statusInvoer === "Alle" && typeInvoer === "Alle"){
-		sql = "SELECT * FROM todo order by datum";
+		sql = "SELECT * FROM todo order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
 	}
 	
 	if(statusInvoer === "Alle" && typeInvoer === "Prive"){
-		sql = "SELECT * FROM todo where type = 'Prive' order by datum";
+		sql = "SELECT * FROM todo where type = 'Prive' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
 	}
 	
 	if(statusInvoer === "Alle" && typeInvoer === "Zakelijk"){
-		sql = "SELECT * FROM todo where type = 'Zakelijk' order by datum";
+		sql = "SELECT * FROM todo where type = 'Zakelijk' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
 	}
 				
 	db.transaction (function (transaction) 
