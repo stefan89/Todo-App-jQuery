@@ -47,8 +47,9 @@ $("#buttonVoegTodoToe").bind ("click", function (event) //Todo toevoegen
 		var sql = "INSERT INTO todo (korteOmschrijving, langeOmschrijving, datum, status, urgentie, type, plaatsOplevering, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		transaction.executeSql (sql, [korteOmschrijving, langeOmschrijving, datum, status, urgentie, type, plaatsOplevering, email], function ()
     {
-		alert ("Todo toegevoegd");
-		showTodos("Onderhanden", "Alle");
+		succeeded("Succesvol toegevoegd!", "OK", function() {
+			showTodos("Onderhanden", "Alle");
+		});
     }, error);
 	});
 });
@@ -74,8 +75,10 @@ $("#buttonWijzigTodoToe").bind ("click", function (event) //Todo wijzigen
 		var sql = 'UPDATE todo SET korteOmschrijving=?, langeOmschrijving=?, datum=?, urgentie=?, plaatsOplevering=?, type=? WHERE todoId=?;';
 		transaction.executeSql (sql, [korteOmschrijving, langeOmschrijving, datum, urgentie, plaatsOplevering, type, todoId], function()
     {
-		alert ("Todo Gewijzigd");
-		showTodos("Onderhanden", "Alle");
+		succeeded("Succesvol gewijzigd!", "OK", function() {
+			showTodos("Onderhanden", "Alle");
+		});
+		
     }, error);
 	});
 });
@@ -84,14 +87,12 @@ $("#buttonWijzigTodoToe").bind ("click", function (event) //Todo wijzigen
 
 function showTodos(statusInvoer, typeInvoer)
 {
-	
-
 	var sql = ""; 
 				
 	if(statusInvoer === "Onderhanden" && typeInvoer === "Alle"){
 		sql = "SELECT * FROM todo where status = 'Onderhanden' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
 	}
-;
+
 	if(statusInvoer === "Afgehandelde" && typeInvoer === "Alle"){
 		sql = "SELECT * FROM todo where status = 'Afgehandeld' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
 	}
@@ -111,8 +112,6 @@ function showTodos(statusInvoer, typeInvoer)
 		function (transaction, result)
 		{
 		  var html = '<ul id="OnderhandenTodoListview " data-role="listview" + " class="OnderhoudenListView" + data-filter="true" + " data-filter-placeholder="Zoek to-do..." + data-name=' + statusInvoer + '>';
-		  //alert("hoi");
-		  //alert(SELECT STR_TO_DATE('May 1, 2013','%M %d,%Y'));
 		  
 		  if (result.rows.length) 
 		  {

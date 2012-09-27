@@ -27,8 +27,9 @@ $("#buttonVoegPersoonToe").bind ("click", function (event)
     var sql = "INSERT INTO persoon (voorNaam, achterNaam, geslacht, geboorteDatum, email, telefoonNummer) VALUES (?, ?, ?, ?, ?, ?)";
     transaction.executeSql (sql, [voorNaam, achterNaam, geslacht, geboorteDatum, email, telefoonNummer], function ()
     { 
-      alert ("Persoon toegevoegd");
-	  showPersonen();
+	  succeeded("Succesvol toegevoegd!", "OK", function() {
+			showPersonen();
+		});
     }, error);
   });
 });
