@@ -26,12 +26,11 @@ $("#pageTodoToevoeg").live('pageinit', function()
 
 
 
-$( "#formTodo" ).validate({ //valideren ingevulde form data
+$( "#formTodo" ).validate({ //valideren ingevulde form data Nieuwe todo
     submitHandler: function(form) {
 		$('#buttonVoegTodoToe').trigger('click');
     }
 });
-
 $("#buttonVoegTodoToe").bind ("click", function (event) //Todo toevoegen
 {
 	var korteOmschrijving = $("#korteOmschrijving").val();
@@ -54,7 +53,35 @@ $("#buttonVoegTodoToe").bind ("click", function (event) //Todo toevoegen
 	});
 });
 
-	
+
+$( "#formTodoWijzig").validate({ //valideren ingevulde form data Nieuwe todo
+    submitHandler: function(form) {
+		$('#buttonWijzigTodoToe').trigger('click');
+    }
+});
+$("#buttonWijzigTodoToe").bind ("click", function (event) //Todo wijzigen
+{
+	var todoId = $("#todoIdWijzig").val();
+	var korteOmschrijving = $("#korteOmschrijvingWijzig").val();
+	var langeOmschrijving = $("#langeOmschrijvingWijzig").val();
+	var datum = $("#datumOpleveringWijzig").val();
+	var urgentie = $("#urgentieWijzig").val();
+	var plaatsOplevering = $("#plaatsWijzig").val();
+	var type = $("#typeWijzig").val();
+  
+	db.transaction (function (transaction) 
+	{
+		var sql = 'UPDATE todo SET korteOmschrijving=?, langeOmschrijving=?, datum=?, urgentie=?, plaatsOplevering=?, type=? WHERE todoId=?;';
+		transaction.executeSql (sql, [korteOmschrijving, langeOmschrijving, datum, urgentie, plaatsOplevering, type, todoId], function()
+    {
+		alert ("Todo Gewijzigd");
+    }, error);
+		showTodos("Onderhanden", "Alle");
+	});
+});
+
+
+
 function showTodos(statusInvoer, typeInvoer)
 {
 	var sql = ""; 
@@ -294,7 +321,6 @@ function showTodoDetails(todoIdInvoer)
 			$("#buttonVerwijderTodo").show();
 			$("#buttonWijzigTodo").show();
 		}
-		
         var ul = content.find ("ul");
         ul.listview ();
       });
@@ -303,6 +329,41 @@ function showTodoDetails(todoIdInvoer)
   });
 }
 
+
+
+function wijzigTodo(todoIdInvoer)
+{
+  db.transaction (function (transaction) 
+  {
+	var sql = "SELECT * FROM todo where todoId =" + "'"+ todoIdInvoer +"'";
+	
+    transaction.executeSql (sql, undefined, 
+    
+	function (transaction, result)
+    {
+		  var row = result.rows.item (0);
+          var korteOmschrijving = row.korteOmschrijving;
+		  var langeOmschrijving = row.langeOmschrijving;
+		  var datum = row.datum;
+		  var urgentie = row.urgentie;
+		  var plaatsOplevering = row.plaatsOplevering;
+		  var type = row.type;
+		  
+      $("#pageTodoWijzig").unbind ().bind ("pagebeforeshow", function ()
+      {
+			$("#todoIdWijzig").val(todoIdInvoer);
+			$("#korteOmschrijvingWijzig").val(korteOmschrijving);
+			$("#langeOmschrijvingWijzig").val(langeOmschrijving);
+			$("#datumOpleveringWijzig").val(datum);
+			$("#urgentieWijzig").val(urgentie);
+			$("#plaatsWijzig").val(plaatsOplevering);
+			$("#typeWijzig").val(type);
+			$("#todoIdWijzig").hide();
+      });
+        $.mobile.changePage ($("#pageTodoWijzig"), { transition: "slide"});
+	}, error);
+  });
+}
 
 
 
@@ -335,6 +396,11 @@ $("#pageTodoDetails").live('pageinit', function() {
 			  }
 			}
 		  });
+    });  
+	
+	$('#buttonWijzigTodo').live('vclick', function(event) {  // WIJZIG SPECIFIEKE TO-DO
+		var todoId = $(".listviewDetailsTodo").attr('data-name'); //Haalt value van te verwijderen todo op (detailView)
+		(wijzigTodo(todoId));
     });  
 	
 	$('#buttonTodoAfgehandeld').live('vclick', function(event) { // Wijzig status van to-do naar afgehandeld

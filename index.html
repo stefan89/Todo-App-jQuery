@@ -403,10 +403,9 @@
 						</select>
 					</div>	
 					</p>
-					
 					<div>
 						<button class="buttonValidateTodo" type="submit" value="Submit" data-icon="check" data-iconpos="right">To-do toevoegen</button>
-						<a id="buttonVoegTodoToe" href=#  ></a>
+						<a id="buttonVoegTodoToe" href=#></a>
 					</div>
 				</fieldset>					
 				</form>
@@ -432,12 +431,7 @@
 					<a href="#" id=buttonPriveTodosWeergeven data-role="button"data-transition="slide">Prive</a>
 					<a href="#" id=buttonZakelijkeTodosWeergeven data-role="button"data-transition="slide">Zakelijk</a>
 					</div>
-				</div>	<!--
-				<div id="navgroup">
-						<select name="selectPersoon" id="selectPersoon" class="required">
-							<option>Alle personen...</option>
-						</select>
-				</div>-->
+				</div>
 			</div>
 			<div data-role="content">
 			</div>
@@ -505,6 +499,60 @@
 				<h1>Wijzig to-do</h1>
 			</div>
 			<div data-role="content">
+				<p>
+					<b>Wijzig todo</b>
+				</p>
+				<form id="formTodoWijzig" method="get" action="" class="formTodoWijzig" data-name="">
+				<fieldset>
+					<p>
+					<div data-role="fieldcontainer"> <!--hidden field-->
+						<input type="text" id="todoIdWijzig" name="todoIdWijzig"/>
+					</div>
+					<div data-role="fieldcontainer">
+						<label for="korteOmschrijvingWijzig"><em>*</em>Korte omschrijving:</label>
+						<input type="text" id="korteOmschrijvingWijzig" name="korteOmschrijvingWijzig" "required placeholder="Vul hier een korte omschrijving in.." minlength="2" maxlength="100" class="required"/>
+					</div>	
+					</p>
+					<p>
+					<div data-role="fieldcontainer">
+						<label for="langeOmschrijvingWijzig">Lange omschrijving:</label>
+						<textarea name="langeOmschrijvingWijzig" id="langeOmschrijvingWijzig" "required placeholder="Vul hier een lange omschrijving in.." maxlength="2000"></textarea>
+					</div>
+					</p>
+					<p>
+					<div data-role="fieldcontainer">
+						<label for="datumOpleveringWijzig"><em>*</em>Datum oplevering:</label>
+						<input name="datumOpleveringWijzig" id="datumOpleveringWijzig" type="date" data-role="datebox" class="required"
+						data-options='{"mode": "calbox", "afterToday": true, "useImmediate":true, "useButton": false, "useFocus": true, "useInlineBlind": true, "overrideDateFormat": "%d-%m-%Y", "overrideDateFieldOrder": ["d", "m", "y"], "calShowWeek": true }'>
+					</div>
+					</p>
+					<p>
+					<div data-role="fieldcontainer">
+						<label for="urgentieWijzig"><em>*</em>Urgentie: </label>
+						<input type="range" id="urgentieWijzig" name="urgentieWijzig" min="1" max="3" value="2" class="required"/>
+					</div>
+					</p>
+					<p>
+					<div data-role="fieldcontainer">
+						<label for="plaatsWijzig"><em>*</em>Plaats oplevering:</label>
+						<input type="text" id="plaatsWijzig" name="plaatsWijzig" "required placeholder="Plaats oplevering.." maxlength="100" class="required"/>
+					</div>
+					</p>
+					<p>
+					<div data-role="fieldcontainer">
+					<label for="typeWijzig"><em>*</em>Prive of zakelijke to-do?</label>
+						<select id="typeWijzig" name="typeWijzig" data-role="slider">
+						<option value="Prive">Prive</option>
+						<option value="Zakelijk">Zakelijk</option>
+						</select>
+					</div>	
+					</p>
+					<div>
+						<button class="buttonValidateTodoWijzig" type="submit" value="Submit" data-icon="check" data-iconpos="right">Wijzig Todo</button>
+						<a id="buttonWijzigTodoToe" href=#></a>
+					</div>
+				</fieldset>					
+				</form>
 			</div>
 			<div data-role="footer" data-position="fixed" data-theme="f">
 				<div data-role="navbar">
@@ -516,7 +564,6 @@
 				</div>
 			</div>
 		</div>
-		
 	</body>
 </html>
 <script src="src/custom/js/allTabs.js" type="text/javascript"></script>
