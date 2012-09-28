@@ -12,6 +12,29 @@ function refreshPage(htmlInvoer, pageInvoer) //refresh the page when data is col
 
 
 
+
+function succeeded(titleTextInvoer, buttonTextInvoer, callback) {
+  $("#informatieDialog .informatieDialogH3Text").text(titleTextInvoer);
+  $("#informatieDialog .informatieDialog-do").text(buttonTextInvoer).on("click.informatieDialog", function() {
+    callback();
+    $(this).off("click.informatieDialog");
+  });
+  $.mobile.changePage("#informatieDialog");  
+}
+
+
+
+function areYouSure(titleTextInvoer, buttonTextInvoer, callback) {
+  $("#bevestigDialog .bevestigDialogH3Text").text(titleTextInvoer);
+  $("#bevestigDialog .bevestigDialog-do").text(buttonTextInvoer).on("click.bevestigDialog", function() {
+    callback();
+    $(this).off("click.bevestigDialog");
+  });
+  $.mobile.changePage("#bevestigDialog");
+}
+
+
+
 function ok ()
 {
 }
@@ -22,15 +45,4 @@ function error (transaction, err)
 {
   alert ("DB error : " + err.message);
   return false;
-}
-
-
-
-function succeeded(titleTextInvoer, buttonTextInvoer, callback) {
-  $("#sure .sure-1").text(titleTextInvoer);
-  $("#sure .sure-do").text(buttonTextInvoer).on("click.sure", function() {
-    callback();
-    $(this).off("click.sure");
-  });
-  $.mobile.changePage("#sure");  
 }

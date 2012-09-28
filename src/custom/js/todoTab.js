@@ -375,31 +375,15 @@ $("#pageTodoDetails").live('pageinit', function() {
     
 	$('#buttonVerwijderTodo').live('vclick', function(event) {  // VERWIJDER SPECIFIEKE TO-DO
 		 var todoId = $(".listviewDetailsTodo").attr('data-name'); //Haalt value van te verwijderen todo op (detailView)
-		 
-		 $(this).simpledialog({'mode' : 'bool', 'prompt' : 'Zeker?', 'useModal': true,
-			'buttons' : {
-			  'Ja': {
-				click: function () {
-				  $('#dialogoutput').text('OK');
-					db.transaction (function (transaction) 
-					{
-						var sql = "DELETE FROM todo WHERE todoId = " + todoId;
+		 areYouSure("Weet u het zeker?", "Ja", function() {
+			db.transaction (function (transaction) 
+				{
+					var sql = "DELETE FROM todo WHERE todoId = " + todoId;
 									
-						transaction.executeSql (sql, undefined, ok, error);
-					});
-					showTodos('Alle', 'Alle');
-				},
-				theme: "c"
-			  },
-			  'Nee': {
-				click: function () {
-				  $('#dialogoutput').text('Cancel');
-				},
-				icon: "delete",
-				theme: "a"
-			  }
-			}
-		  });
+					transaction.executeSql (sql, undefined, ok, error);
+				});
+			showTodos('Alle', 'Alle');
+		});
     });  
 	
 	$('#buttonWijzigTodo').live('vclick', function(event) {  // WIJZIG SPECIFIEKE TO-DO
@@ -409,31 +393,15 @@ $("#pageTodoDetails").live('pageinit', function() {
 	
 	$('#buttonTodoAfgehandeld').live('vclick', function(event) { // Wijzig status van to-do naar afgehandeld
 		 var todoId = $(".listviewDetailsTodo").attr('data-name'); //Haalt value van te verwijderen todo op (detailView)
-		 
-		 $(this).simpledialog({'mode' : 'bool', 'prompt' : 'To-do afgehandeld?', 'useModal': true,
-			'buttons' : {
-			  'Ja': {
-				click: function () {
-				  $('#dialogoutput').text('OK');
-					db.transaction (function (transaction) 
-					{
-						var sql = "UPDATE todo SET status = 'Afgehandeld' where todoId = " + todoId;
+		 areYouSure("Weet u het zeker?", "Ja", function() {
+			db.transaction (function (transaction) 
+			{
+				var sql = "UPDATE todo SET status = 'Afgehandeld' where todoId = " + todoId;
 									
-						transaction.executeSql (sql, undefined, ok, error);
-					});
-					showTodos('Afgehandelde', 'Alle');
-				},
-				theme: "c"
-			  },
-			  'Nee': {
-				click: function () {
-				  $('#dialogoutput').text('Cancel');
-				},
-				icon: "delete",
-				theme: "a"
-			  }
-			}
-		  });
+				transaction.executeSql (sql, undefined, ok, error);
+			});
+			showTodos('Afgehandelde', 'Alle');
+		});
     }); 
 
 	$('#buttonOpenPlaats').live('vclick', function(event) { // Open Google maps view
