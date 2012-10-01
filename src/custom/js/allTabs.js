@@ -46,3 +46,9 @@ function error (transaction, err)
   alert ("DB error : " + err.message);
   return false;
 }
+
+
+
+$(document).bind("mobileinit", function(){ //Back button fix for Android devices 
+        $.mobile.pushStateEnabled = false; 
+});

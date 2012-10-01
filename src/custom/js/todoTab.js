@@ -2,7 +2,7 @@ $("#pageTodoToevoeg").live('pageinit', function()
 {
   db.transaction (function (transaction) 
   {
-    var sql = "SELECT * FROM persoon";
+    var sql = "SELECT * FROM persoon order by UPPER(achterNaam)";
     transaction.executeSql (sql, undefined, 
     
 	function (transaction, result)
@@ -266,7 +266,7 @@ function refreshOnderhoudenTodoList(typeInvoer, statusInvoer)
 
 
 $("#pageTodoLijst").live('pageinit', function() {   //Haalt value van clicked listitem op
-    $('.listItemOnderhandenTodo').live('vclick', function(e) {
+    $('.listItemOnderhandenTodo').live('click', function(e) {
 		 showTodoDetails($(this).attr('data-name'));
     });  
 });
@@ -373,8 +373,9 @@ function wijzigTodo(todoIdInvoer)
 
 $("#pageTodoDetails").live('pageinit', function() {   
     
-	$('#buttonVerwijderTodo').live('vclick', function(event) {  // VERWIJDER SPECIFIEKE TO-DO
+	$('#buttonVerwijderTodo').live('click', function(event) {  // VERWIJDER SPECIFIEKE TO-DO
 		 var todoId = $(".listviewDetailsTodo").attr('data-name'); //Haalt value van te verwijderen todo op (detailView)
+		 //alert(todoId);
 		 areYouSure("Weet u het zeker?", "Ja", function() {
 			db.transaction (function (transaction) 
 				{
@@ -386,26 +387,29 @@ $("#pageTodoDetails").live('pageinit', function() {
 		});
     });  
 	
-	$('#buttonWijzigTodo').live('vclick', function(event) {  // WIJZIG SPECIFIEKE TO-DO
+	$('#buttonWijzigTodo').live('click', function(event) {  // WIJZIG SPECIFIEKE TO-DO
 		var todoId = $(".listviewDetailsTodo").attr('data-name'); //Haalt value van te verwijderen todo op (detailView)
-		(wijzigTodo(todoId));
+		//alert(todoId);
+		wijzigTodo(todoId);
     });  
 	
-	$('#buttonTodoAfgehandeld').live('vclick', function(event) { // Wijzig status van to-do naar afgehandeld
+	$('#buttonTodoAfgehandeld').live('click', function(event) { // Wijzig status van to-do naar afgehandeld
 		 var todoId = $(".listviewDetailsTodo").attr('data-name'); //Haalt value van te verwijderen todo op (detailView)
+		 //alert(todoId);
 		 areYouSure("Weet u het zeker?", "Ja", function() {
 			db.transaction (function (transaction) 
-			{
-				var sql = "UPDATE todo SET status = 'Afgehandeld' where todoId = " + todoId;
+				{
+					var sql = "UPDATE todo SET status = 'Afgehandeld' where todoId = " + todoId;
 									
-				transaction.executeSql (sql, undefined, ok, error);
-			});
+					transaction.executeSql (sql, undefined, ok, error);
+				});
 			showTodos('Afgehandelde', 'Alle');
 		});
-    }); 
+    });
 
-	$('#buttonOpenPlaats').live('vclick', function(event) { // Open Google maps view
+	$('#buttonOpenPlaats').live('click', function(event) { // Open Google maps view
 		var plaatsInvoer = $(".listviewDetailsTodo").attr('data-name2');	
+		//alert(plaatsInvoer);
 		$("#pageTodoMaps").unbind ().bind ("pagebeforeshow", function ()
 		{
 			$('#map_canvas').gmap('search', { 'address': plaatsInvoer}, function(results, status) {

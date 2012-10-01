@@ -72,7 +72,7 @@ function showPersonen()
 
 
  $("#pagePersoonLijst").live('pageinit', function() {   //Haalt value van clicked listitem op
-    $('.listItem').live('vclick', function(e) {
+    $('.listItem').live('click', function(event) {
 		 showPersoonDetails($(this).attr('data-name'));
     });  
 });
