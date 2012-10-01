@@ -24,8 +24,8 @@ $("#buttonVoegPersoonToe").bind ("click", function (event)
   
   db.transaction (function (transaction) 
   {
-    var sql = "INSERT INTO persoon (voorNaam, achterNaam, geslacht, geboorteDatum, email, telefoonNummer) VALUES (?, ?, ?, ?, ?, ?)";
-    transaction.executeSql (sql, [voorNaam, achterNaam, geslacht, geboorteDatum, email, telefoonNummer], function ()
+    var sqlQuery = "INSERT INTO persoon (voorNaam, achterNaam, geslacht, geboorteDatum, email, telefoonNummer) VALUES (?, ?, ?, ?, ?, ?)";
+    transaction.executeSql (sqlQuery, [voorNaam, achterNaam, geslacht, geboorteDatum, email, telefoonNummer], function ()
     { 
 	  succeeded("Succesvol toegevoegd!", "OK", function() {
 			showPersonen();
@@ -40,8 +40,8 @@ function showPersonen()
 {
   db.transaction (function (transaction) 
   {
-    var sql = "SELECT * FROM persoon order by UPPER(achterNaam)";
-    transaction.executeSql (sql, undefined, 
+    var sqlQuery = "SELECT * FROM persoon order by UPPER(achterNaam)";
+    transaction.executeSql (sqlQuery, undefined, 
     
 	function (transaction, result)
     {
@@ -81,9 +81,9 @@ function showPersoonDetails(emailInvoer)
 {
   db.transaction (function (transaction) 
   {
-	var sql = "SELECT * FROM persoon where email =" + "'"+ emailInvoer +"'";
+	var sqlQuery = "SELECT * FROM persoon where email =" + "'"+ emailInvoer +"'";
 	
-    transaction.executeSql (sql, undefined, 
+    transaction.executeSql (sqlQuery, undefined, 
 	function (transaction, result)
     {
 		  var row = result.rows.item (0);

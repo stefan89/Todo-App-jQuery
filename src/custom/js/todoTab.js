@@ -2,8 +2,8 @@ $("#pageTodoToevoeg").live('pageinit', function()
 {
   db.transaction (function (transaction) 
   {
-    var sql = "SELECT * FROM persoon order by UPPER(achterNaam)";
-    transaction.executeSql (sql, undefined, 
+    var sqlQuery = "SELECT * FROM persoon order by UPPER(achterNaam)";
+    transaction.executeSql (sqlQuery, undefined, 
     
 	function (transaction, result)
     {
@@ -44,8 +44,8 @@ $("#buttonVoegTodoToe").bind ("click", function (event) //Todo toevoegen
   
 	db.transaction (function (transaction) 
 	{
-		var sql = "INSERT INTO todo (korteOmschrijving, langeOmschrijving, datum, status, urgentie, type, plaatsOplevering, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-		transaction.executeSql (sql, [korteOmschrijving, langeOmschrijving, datum, status, urgentie, type, plaatsOplevering, email], function ()
+		var sqlQuery = "INSERT INTO todo (korteOmschrijving, langeOmschrijving, datum, status, urgentie, type, plaatsOplevering, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		transaction.executeSql (sqlQuery, [korteOmschrijving, langeOmschrijving, datum, status, urgentie, type, plaatsOplevering, email], function ()
     {
 		succeeded("Succesvol toegevoegd!", "OK", function() {
 			showTodos("Onderhanden", "Alle");
@@ -72,8 +72,8 @@ $("#buttonWijzigTodoToe").bind ("click", function (event) //Todo wijzigen
   
 	db.transaction (function (transaction) 
 	{
-		var sql = 'UPDATE todo SET korteOmschrijving=?, langeOmschrijving=?, datum=?, urgentie=?, plaatsOplevering=?, type=? WHERE todoId=?;';
-		transaction.executeSql (sql, [korteOmschrijving, langeOmschrijving, datum, urgentie, plaatsOplevering, type, todoId], function()
+		var sqlQuery = 'UPDATE todo SET korteOmschrijving=?, langeOmschrijving=?, datum=?, urgentie=?, plaatsOplevering=?, type=? WHERE todoId=?;';
+		transaction.executeSql (sqlQuery, [korteOmschrijving, langeOmschrijving, datum, urgentie, plaatsOplevering, type, todoId], function()
     {
 		succeeded("Succesvol gewijzigd!", "OK", function() {
 			showTodos("Onderhanden", "Alle");
@@ -87,18 +87,18 @@ $("#buttonWijzigTodoToe").bind ("click", function (event) //Todo wijzigen
 
 function showTodos(statusInvoer, typeInvoer)
 {
-	var sql = ""; 
+	var sqlQuery = ""; 
 				
 	if(statusInvoer === "Onderhanden" && typeInvoer === "Alle"){
-		sql = "SELECT * FROM todo where status = 'Onderhanden' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
+		sqlQuery = "SELECT * FROM todo where status = 'Onderhanden' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
 	}
 
-	if(statusInvoer === "Afgehandelde" && typeInvoer === "Alle"){
-		sql = "SELECT * FROM todo where status = 'Afgehandeld' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
+	else if(statusInvoer === "Afgehandelde" && typeInvoer === "Alle"){
+		sqlQuery = "SELECT * FROM todo where status = 'Afgehandeld' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
 	}
 
-	if(statusInvoer === "Alle" && typeInvoer === "Alle"){
-		sql = "SELECT * FROM todo order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
+	else if(statusInvoer === "Alle" && typeInvoer === "Alle"){
+		sqlQuery = "SELECT * FROM todo order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
 	}
 
 	$("#buttonAllTodosWeergeven").addClass('ui-btn-active');
@@ -107,7 +107,7 @@ function showTodos(statusInvoer, typeInvoer)
 			
 	db.transaction (function (transaction) 
 	{
-	transaction.executeSql (sql, undefined, 
+	transaction.executeSql (sqlQuery, undefined, 
 
 		function (transaction, result)
 		{
@@ -160,7 +160,7 @@ function showTodos(statusInvoer, typeInvoer)
 $("#buttonAllTodosWeergeven").bind("click", function ()
 {
 		var status = $(".OnderhoudenListView").attr('data-name');
-		refreshOnderhoudenTodoList("Alle", status);
+		refreshTodoList("Alle", status);
 		$(this).addClass('ui-btn-active');
 		$("#buttonPriveTodosWeergeven").removeClass('ui-btn-active');
 		$("#buttonZakelijkeTodosWeergeven").removeClass('ui-btn-active');
@@ -168,7 +168,7 @@ $("#buttonAllTodosWeergeven").bind("click", function ()
 $("#buttonPriveTodosWeergeven").bind("click", function ()
 {		
 		var status = $(".OnderhoudenListView").attr('data-name');
-		refreshOnderhoudenTodoList("Prive", status);
+		refreshTodoList("Prive", status);
 		$(this).addClass('ui-btn-active');
 		$("#buttonAllTodosWeergeven").removeClass('ui-btn-active');
 		$("#buttonZakelijkeTodosWeergeven").removeClass('ui-btn-active');
@@ -176,56 +176,56 @@ $("#buttonPriveTodosWeergeven").bind("click", function ()
 $("#buttonZakelijkeTodosWeergeven").bind("click", function ()
 {
 		var status = $(".OnderhoudenListView").attr('data-name');
-		refreshOnderhoudenTodoList("Zakelijk", status);
+		refreshTodoList("Zakelijk", status);
 		$(this).addClass('ui-btn-active');
 		$("#buttonAllTodosWeergeven").removeClass('ui-btn-active');
 		$("#buttonPriveTodosWeergeven").removeClass('ui-btn-active');
 });	
 	
 
-function refreshOnderhoudenTodoList(typeInvoer, statusInvoer)
+function refreshTodoList(typeInvoer, statusInvoer)
 {	
-	var sql = ""; 
+	var sqlQuery = ""; 
 				
 	if(statusInvoer === "Onderhanden" && typeInvoer === "Alle"){
-		sql = "SELECT * FROM todo where status = 'Onderhanden' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
+		sqlQuery = "SELECT * FROM todo where status = 'Onderhanden' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
 	}
 	
-	if(statusInvoer === "Onderhanden" && typeInvoer === "Prive"){
-		sql = "SELECT * FROM todo where status = 'Onderhanden' and type = 'Prive' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
+	else if(statusInvoer === "Onderhanden" && typeInvoer === "Prive"){
+		sqlQuery = "SELECT * FROM todo where status = 'Onderhanden' and type = 'Prive' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
 	}
 	
-	if(statusInvoer === "Onderhanden" && typeInvoer === "Zakelijk"){
-		sql = "SELECT * FROM todo where status = 'Onderhanden' and type = 'Zakelijk' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
+	else if(statusInvoer === "Onderhanden" && typeInvoer === "Zakelijk"){
+		sqlQuery = "SELECT * FROM todo where status = 'Onderhanden' and type = 'Zakelijk' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
 	}
 	
-	if(statusInvoer === "Afgehandelde" && typeInvoer === "Alle"){
-		sql = "SELECT * FROM todo where status = 'Afgehandeld' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
+	else if(statusInvoer === "Afgehandelde" && typeInvoer === "Alle"){
+		sqlQuery = "SELECT * FROM todo where status = 'Afgehandeld' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
 	}
 	
-	if(statusInvoer === "Afgehandelde" && typeInvoer === "Prive"){
-		sql = "SELECT * FROM todo where status = 'Afgehandeld' and type = 'Prive' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
+	else if(statusInvoer === "Afgehandelde" && typeInvoer === "Prive"){
+		sqlQuery = "SELECT * FROM todo where status = 'Afgehandeld' and type = 'Prive' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
 	}
 	
-	if(statusInvoer === "Afgehandelde" && typeInvoer === "Zakelijk"){
-		sql = "SELECT * FROM todo where status = 'Afgehandeld' and type = 'Zakelijk' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
+	else if(statusInvoer === "Afgehandelde" && typeInvoer === "Zakelijk"){
+		sqlQuery = "SELECT * FROM todo where status = 'Afgehandeld' and type = 'Zakelijk' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
 	}
 	
-	if(statusInvoer === "Alle" && typeInvoer === "Alle"){
-		sql = "SELECT * FROM todo order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
+	else if(statusInvoer === "Alle" && typeInvoer === "Alle"){
+		sqlQuery = "SELECT * FROM todo order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
 	}
 	
-	if(statusInvoer === "Alle" && typeInvoer === "Prive"){
-		sql = "SELECT * FROM todo where type = 'Prive' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
+	else if(statusInvoer === "Alle" && typeInvoer === "Prive"){
+		sqlQuery = "SELECT * FROM todo where type = 'Prive' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
 	}
 	
-	if(statusInvoer === "Alle" && typeInvoer === "Zakelijk"){
-		sql = "SELECT * FROM todo where type = 'Zakelijk' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
+	else if(statusInvoer === "Alle" && typeInvoer === "Zakelijk"){
+		sqlQuery = "SELECT * FROM todo where type = 'Zakelijk' order by substr(datum,7)||substr(datum,4,2)||substr(datum,1,2)";
 	}
 				
 	db.transaction (function (transaction) 
 	{
-	transaction.executeSql (sql, undefined, 
+	transaction.executeSql (sqlQuery, undefined, 
 	
 		function (transaction, result)
 		{
@@ -275,9 +275,9 @@ function showTodoDetails(todoIdInvoer)
 {
   db.transaction (function (transaction) 
   {
-	var sql = "SELECT * FROM todo where todoId =" + "'"+ todoIdInvoer +"'";
+	var sqlQuery = "SELECT * FROM todo where todoId =" + "'"+ todoIdInvoer +"'";
 	
-    transaction.executeSql (sql, undefined, 
+    transaction.executeSql (sqlQuery, undefined, 
     
 	function (transaction, result)
     {
@@ -339,9 +339,9 @@ function wijzigTodo(todoIdInvoer)
 {
   db.transaction (function (transaction) 
   {
-	var sql = "SELECT * FROM todo where todoId =" + "'"+ todoIdInvoer +"'";
+	var sqlQuery = "SELECT * FROM todo where todoId =" + "'"+ todoIdInvoer +"'";
 	
-    transaction.executeSql (sql, undefined, 
+    transaction.executeSql (sqlQuery, undefined, 
     
 	function (transaction, result)
     {
@@ -371,17 +371,16 @@ function wijzigTodo(todoIdInvoer)
 
 
 
-$("#pageTodoDetails").live('pageinit', function() {   
+$("#pageTodoDetails").live('pageinit', function() { //Todo detailpagina button 'handlers'
     
 	$('#buttonVerwijderTodo').live('click', function(event) {  // VERWIJDER SPECIFIEKE TO-DO
 		 var todoId = $(".listviewDetailsTodo").attr('data-name'); //Haalt value van te verwijderen todo op (detailView)
-		 //alert(todoId);
 		 areYouSure("Weet u het zeker?", "Ja", function() {
 			db.transaction (function (transaction) 
 				{
-					var sql = "DELETE FROM todo WHERE todoId = " + todoId;
+					var sqlQuery = "DELETE FROM todo WHERE todoId = " + todoId;
 									
-					transaction.executeSql (sql, undefined, ok, error);
+					transaction.executeSql (sqlQuery, undefined, ok, error);
 				});
 			showTodos('Alle', 'Alle');
 		});
@@ -389,19 +388,17 @@ $("#pageTodoDetails").live('pageinit', function() {
 	
 	$('#buttonWijzigTodo').live('click', function(event) {  // WIJZIG SPECIFIEKE TO-DO
 		var todoId = $(".listviewDetailsTodo").attr('data-name'); //Haalt value van te verwijderen todo op (detailView)
-		//alert(todoId);
 		wijzigTodo(todoId);
     });  
 	
 	$('#buttonTodoAfgehandeld').live('click', function(event) { // Wijzig status van to-do naar afgehandeld
 		 var todoId = $(".listviewDetailsTodo").attr('data-name'); //Haalt value van te verwijderen todo op (detailView)
-		 //alert(todoId);
 		 areYouSure("Weet u het zeker?", "Ja", function() {
 			db.transaction (function (transaction) 
 				{
-					var sql = "UPDATE todo SET status = 'Afgehandeld' where todoId = " + todoId;
+					var sqlQuery = "UPDATE todo SET status = 'Afgehandeld' where todoId = " + todoId;
 									
-					transaction.executeSql (sql, undefined, ok, error);
+					transaction.executeSql (sqlQuery, undefined, ok, error);
 				});
 			showTodos('Afgehandelde', 'Alle');
 		});
@@ -409,7 +406,6 @@ $("#pageTodoDetails").live('pageinit', function() {
 
 	$('#buttonOpenPlaats').live('click', function(event) { // Open Google maps view
 		var plaatsInvoer = $(".listviewDetailsTodo").attr('data-name2');	
-		//alert(plaatsInvoer);
 		$("#pageTodoMaps").unbind ().bind ("pagebeforeshow", function ()
 		{
 			$('#map_canvas').gmap('search', { 'address': plaatsInvoer}, function(results, status) {

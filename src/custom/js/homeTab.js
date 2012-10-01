@@ -3,53 +3,23 @@ $("#buttonResetData").bind ("click", function (event)
   	areYouSure("Weet u het zeker?", "Ja", function() {
 		db.transaction (function (transaction) 
 			 {
-			   var sql1 = "DELETE FROM todo";
-			   transaction.executeSql (sql1, undefined, ok, error);
+			   var sqlQuery1 = "DELETE FROM todo";
+			   transaction.executeSql (sqlQuery1, undefined, ok, error);
 			   
-			   var sql2 = "DELETE FROM persoon";
-			   transaction.executeSql (sql2, undefined, ok, error);
+			   var sqlQuery2 = "DELETE FROM persoon";
+			   transaction.executeSql (sqlQuery2, undefined, ok, error);
 		});
 		$.mobile.changePage ($("#pageHome"), { transition: "slide"});
 	});
 });
 
 
-var	carousel,
-	el,
-	i,
-	page,
-	slides = [
-		'<strong>Swipe</strong> to know more &gt;&gt;&gt;<br>Or scroll down for <em>Lorem Ipsum</em>',
-		'1. A robot may not injure a human being or, through inaction, allow a human being to come to harm.',
-		'2. A robot must obey the orders given to it by human beings, except where such orders would conflict with the First Law.',
-		'3. A robot must protect its own existence as long as such protection does not conflict with the First or Second Laws.'
-	];
 
-carousel = new SwipeView('#wrapper', {
-	numberOfPages: slides.length,
-	hastyPageFlip: true
-});
+$(".pageHomeTekst").append("Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis " + 
+						"natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, " +
+						"pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, " +
+						"rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum " +
+						"semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, " +
+						"dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam " +
+						"ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.");
 
-// Load initial data
-for (i=0; i<3; i++) {
-	page = i==0 ? slides.length-1 : i-1;
-
-	el = document.createElement('span');
-	el.innerHTML = slides[page];
-	carousel.masterPages[i].appendChild(el)
-}
-
-carousel.onFlip(function () {
-	var el,
-		upcoming,
-		i;
-
-	for (i=0; i<3; i++) {
-		upcoming = carousel.masterPages[i].dataset.upcomingPageIndex;
-
-		if (upcoming != carousel.masterPages[i].dataset.pageIndex) {
-			el = carousel.masterPages[i].querySelector('span');
-			el.innerHTML = slides[upcoming];
-		}
-	}
-});
