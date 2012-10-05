@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 		<head>
 			<meta charset="utf-8"/>
 			<meta name="apple-mobile-web-app-capable" content="yes">
@@ -10,15 +10,15 @@
 			<link rel="shortcut icon" 	 href="src/custom/icons/todoIcon300x300.png">
 			<link rel="apple-touch-icon" href="src/custom/icons/todoIcon300x300.png" sizes="57x57">
 			<link rel="apple-touch-icon" href="src/custom/icons/todoIcon300x300.png" sizes="114x114">
-			<link rel="stylesheet" type="text/css" href="src/default/css/jquery.mobile-1.1.1.min.css"/> <!-- jQuery mobile -->
-			<link rel="stylesheet" type="text/css" href="src/custom/css/OrdinaStyle3.min.css"/>  <!-- Custom theme (data-theme="f")-->
+			<link rel="stylesheet" type="text/css" href="src/default/css/jquery.mobile-1.2.0.min.css"/> <!-- jQuery mobile -->
+			<link rel="stylesheet" type="text/css" href="src/custom/css/OrdinaStyle3-v1.2.0.min.css"/>  <!-- Custom theme (data-theme="f")-->
 			<link rel="stylesheet" type="text/css" href="src/custom/css/customCssSettings.css"/> <!-- custom css settings -->
 			<link rel="stylesheet" type="text/css" href="src/default/css/mobiscroll-2.0.3.custom.min.css"/>  <!-- mobiscroll datepicker -->
 			<link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" /> <!-- datepicker jQuery plug-in-->
 			<link rel="stylesheet" type="text/css" href="src/default/css/jqm-icon-pack-2.1.2-fa.css" /> <!-- custom icons -->
 			<script type="text/javascript" src="src/default/js/jquery-1.8.2.min.js"></script> <!-- jQuery -->
 			<script type="text/javascript" src="src/custom/js/initiateDatabase.js"></script> <!-- initiate HTML5 Web SQL local storage -->
-			<script type="text/javascript" src="src/default/js/jquery.mobile-1.1.1.min.js"></script> <!-- jQuery mobile -->
+			<script type="text/javascript" src="src/default/js/jquery.mobile-1.2.0.min.js"></script> <!-- jQuery mobile -->
 			<script type="text/javascript" src="src/custom/js/jquery.validate.js"></script>  <!-- validate jQuery plug-in -->
 			<script type="text/javascript" src="src/default/js/jqm-datebox.core.min.js"></script> <!-- datepicker jQuery plug-in-->
 			<script type="text/javascript" src="src/default/js/jqm-datebox.mode.calbox.min.js"></script> <!-- datepicker jQuery plug-in-->
@@ -40,8 +40,8 @@
 		<div data-role="page" id="pageHome" data-theme="f">
 			<div data-role="header" data-position="fixed" data-theme="f">
 				<h1>Home</h1>
-				<a href="#pageOver" data-transition="slide" data-icon="info" class="ui-btn-left">Extra info</a>
-				<a href="#pageReset" data-transition="slide" data-icon="gear" class="ui-btn-right">Reset</a>
+				<a href="#pageOver" data-transition="none" data-icon="info" class="ui-btn-left">Extra info</a>
+				<a href="#pageReset" data-transition="none" data-icon="gear" class="ui-btn-right">Reset</a>
 			</div>
 			<div data-role="content">		
 				<p>
@@ -71,9 +71,9 @@
 			<div data-role="footer" data-position="fixed" data-theme="f">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#pageHome" data-icon="fahome" class="ui-btn-active ui-state-persist" data-transition="slide">Home</a>
-						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="slide">Personen</a>
-						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="slide">To-do's</a>
+						<li><a href="#pageHome" data-icon="fahome" class="ui-btn-active ui-state-persist" data-transition="none">Home</a>
+						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="none">Personen</a>
+						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="none">To-do's</a>
 					</ul>
 				</div>
 			</div>
@@ -115,9 +115,9 @@
 			<div data-role="footer" data-position="fixed" data-theme="f">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#pageHome" data-icon="fahome" class="ui-btn-active ui-state-persist" data-transition="slide">Home</a>
-						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="slide">Personen</a>
-						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="slide">To-do's</a>
+						<li><a href="#pageHome" data-icon="fahome" class="ui-btn-active ui-state-persist" data-transition="none">Home</a>
+						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="none">Personen</a>
+						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="none">To-do's</a>
 					</ul>
 				</div>
 			</div>
@@ -142,9 +142,9 @@
 			<div data-role="footer" data-position="fixed" data-theme="f">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#pageHome" data-icon="fahome" class="ui-btn-active ui-state-persist" data-transition="slide">Home</a>
-						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="slide">Personen</a>
-						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="slide">To-do's</a>
+						<li><a href="#pageHome" data-icon="fahome" class="ui-btn-active ui-state-persist" data-transition="none">Home</a>
+						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="none">Personen</a>
+						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="none">To-do's</a>
 					</ul>
 				</div>
 			</div>
@@ -162,16 +162,16 @@
 			</div>
 			<div data-role="content">
 				<div data-role="controlgroup">
-					<a href="#pagePersoonToevoeg" data-icon="plus" data-iconpos="right" data-role="button" data-transition="slide">Nieuwe persoon toevoegen</a>
-					<a href="#" data-icon="list" data-iconpos="right" data-role="button" data-transition="slide" onClick="showPersonen()">Bestaande personen</a>
+					<a href="#pagePersoonToevoeg" data-icon="plus" data-iconpos="right" data-role="button" data-transition="none">Nieuwe persoon toevoegen</a>
+					<a href="#" data-icon="list" data-iconpos="right" data-role="button" data-transition="none" onClick="showPersonen()">Bestaande personen</a>
 				</div>
 			</div>
 			<div data-role="footer" data-position="fixed" data-theme="f">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#pageHome" data-icon="fahome" data-transition="slide">Home</a>
-						<li><a href="#pagePersoonHoofd" data-icon="user" class="ui-btn-active ui-state-persist" data-transition="slide">Personen</a>
-						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="slide">To-do's</a>
+						<li><a href="#pageHome" data-icon="fahome" data-transition="none">Home</a>
+						<li><a href="#pagePersoonHoofd" data-icon="user" class="ui-btn-active ui-state-persist" data-transition="none">Personen</a>
+						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="none">To-do's</a>
 					</ul>
 				</div>
 			</div>
@@ -194,14 +194,12 @@
 						<label for="voorNaam" ><em>*</em>Voornaam:</label>
 						<input type="text" id="voorNaam" name="voorNaam" "required placeholder="Vul hier de voornaam in.." minlength="2" maxlength="50" class="required"/>
 					</div>
-
 					<p>
 					<div data-role="fieldcontainer">
 						<label for="achterNaam" >
 						<em>*</em>Achternaam:</label>
 						<input type="text" id="achterNaam" "required placeholder="Vul hier de achternaam in.." minlength="2" value="" maxlength="50" class="required"/>
 					</div>
-
 					<p>
 					<div data-role="fieldcontainer">
 						<legend><em>*</em>Geslacht:</legend>
@@ -212,25 +210,21 @@
 						<label for="geslacht-2">Vrouw</label>
 						</div>
 					</div>
-
 					<p>
 					<div data-role="fieldcontainer">
 						<label for="geboorteDatum"><em>*</em>Geboortedatum: </label>
 						<input id="geboorteDatum" name="geboorteDatum" "required placeholder="Vul hier de geboortedatum in.." class="required" />
 					</div>
-
 					<p>				
 					<div data-role="fieldcontainer">
 						<label for="email"><em>*</em>E-mailadres:</label>
 						<input type="email" id="email" name="email" "required placeholder="Vul hier het e-mailadres in.." maxlength="100" class="email required"/>
 					</div>
-
 					<p>
 					<div data-role="fieldcontainer">
 						<label for="telefoonNummer"><em>  </em>Telefoonnummer:</label>
 						<input type="tel" id="telefoonNummer" name="telefoonNummer" "required placeholder="Vul hier het telefoonnummer in.." maxlength="20"/>
 					</div>
-
 					<div>
 					    <button class="buttonValidatePersoon" type="submit" value="Submit" data-icon="check" data-iconpos="right">Persoon toevoegen</button>
 						<a id="buttonVoegPersoonToe" href=#></a>
@@ -241,9 +235,9 @@
 			<div data-role="footer" data-position="fixed" data-theme="f">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#pageHome" data-icon="fahome" data-transition="slide">Home</a>
-						<li><a href="#pagePersoonHoofd" data-icon="user" class="ui-btn-active ui-state-persist" data-transition="slide">Personen</a>
-						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="slide">To-do's</a>
+						<li><a href="#pageHome" data-icon="fahome" data-transition="none">Home</a>
+						<li><a href="#pagePersoonHoofd" data-icon="user" class="ui-btn-active ui-state-persist" data-transition="none">Personen</a>
+						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="none">To-do's</a>
 					</ul>
 				</div>
 			</div>
@@ -259,9 +253,9 @@
 			<div data-role="footer" data-position="fixed" data-theme="f">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#pageHome" data-icon="fahome" data-transition="slide">Home</a>
-						<li><a href="#pagePersoonHoofd" data-icon="user" class="ui-btn-active ui-state-persist" data-transition="slide">Personen</a>
-						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="slide">To-do's</a>
+						<li><a href="#pageHome" data-icon="fahome" data-transition="none">Home</a>
+						<li><a href="#pagePersoonHoofd" data-icon="user" class="ui-btn-active ui-state-persist" data-transition="none">Personen</a>
+						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="none">To-do's</a>
 					</ul>
 				</div>
 			</div>
@@ -277,9 +271,9 @@
 			<div data-role="footer" data-position="fixed" data-theme="f">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#pageHome" data-icon="fahome" data-transition="slide">Home</a>
-						<li><a href="#pagePersoonHoofd" data-icon="user" class="ui-btn-active ui-state-persist" data-transition="slide">Personen</a>
-						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="slide">To-do's</a>
+						<li><a href="#pageHome" data-icon="fahome" data-transition="none">Home</a>
+						<li><a href="#pagePersoonHoofd" data-icon="user" class="ui-btn-active ui-state-persist" data-transition="none">Personen</a>
+						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="none">To-do's</a>
 					</ul>
 				</div>
 			</div>
@@ -297,18 +291,18 @@
 			</div>
 			<div data-role="content">
 				<div data-role="controlgroup">
-					<a href="#pageTodoToevoeg" data-icon="plus" data-iconpos="right" data-role="button"data-transition="slide">Nieuwe to-do toevoegen</a>
-					<a href="#" data-icon="list" data-iconpos="right" data-role="button"data-transition="slide" onClick="showTodos('Onderhanden', 'Alle')">Onderhanden to-do's</a>
-					<a href="#" data-icon="list" data-iconpos="right" data-role="button"data-transition="slide" onClick="showTodos('Afgehandelde', 'Alle')">Afgehandelde to-do's</a>
-					<a href="#" data-icon="list" data-iconpos="right" data-role="button"data-transition="slide" onClick="showTodos('Alle', 'Alle')">Alle to-do's</a>
+					<a href="#pageTodoToevoeg" data-icon="plus" data-iconpos="right" data-role="button"data-transition="none">Nieuwe to-do toevoegen</a>
+					<a href="#" data-icon="list" data-iconpos="right" data-role="button"data-transition="none" onClick="showTodos('Onderhanden', 'Alle')">Onderhanden to-do's</a>
+					<a href="#" data-icon="list" data-iconpos="right" data-role="button"data-transition="none" onClick="showTodos('Afgehandelde', 'Alle')">Afgehandelde to-do's</a>
+					<a href="#" data-icon="list" data-iconpos="right" data-role="button"data-transition="none" onClick="showTodos('Alle', 'Alle')">Alle to-do's</a>
 				</div>
 			</div>
 			<div data-role="footer" data-position="fixed" data-theme="f">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#pageHome" data-icon="fahome" data-transition="slide">Home</a>
-						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="slide">Personen</a>
-						<li><a href="#pageTodoHoofd" data-icon="list-alt" class="ui-btn-active ui-state-persist" data-transition="slide">To-do's</a>
+						<li><a href="#pageHome" data-icon="fahome" data-transition="none">Home</a>
+						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="none">Personen</a>
+						<li><a href="#pageTodoHoofd" data-icon="list-alt" class="ui-btn-active ui-state-persist" data-transition="none">To-do's</a>
 					</ul>
 				</div>
 			</div>
@@ -337,7 +331,6 @@
 						<label for="korteOmschrijving"><em>*</em>Korte omschrijving:</label>
 						<input type="text" id="korteOmschrijving" name="korteOmschrijving" "required placeholder="Vul hier een korte omschrijving in.." minlength="2" maxlength="100" class="required"/>
 					</div>			
-					
 					</p>
 					<p>
 					<div data-role="fieldcontainer">
@@ -383,9 +376,9 @@
 			<div data-role="footer" data-position="fixed" data-theme="f">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#pageHome" data-icon="fahome" data-transition="slide">Home</a>
-						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="slide">Personen</a>
-						<li><a href="#pageTodoHoofd" data-icon="list-alt" class="ui-btn-active ui-state-persist" data-transition="slide">To-do's</a>
+						<li><a href="#pageHome" data-icon="fahome" data-transition="none">Home</a>
+						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="none">Personen</a>
+						<li><a href="#pageTodoHoofd" data-icon="list-alt" class="ui-btn-active ui-state-persist" data-transition="none">To-do's</a>
 					</ul>
 				</div>
 			</div>
@@ -397,9 +390,9 @@
 				<h1 id="pageTodoLijstH1"></h1>
 				<div id="navgroup" class="pageTodoLijstNavgroup">
 					<div data-role="controlgroup" data-type="horizontal">
-					<a href="#" id=buttonAllTodosWeergeven data-role="button" data-transition="slide">Alle</a>
-					<a href="#" id=buttonPriveTodosWeergeven data-role="button" data-transition="slide">Prive</a>
-					<a href="#" id=buttonZakelijkeTodosWeergeven data-role="button" data-transition="slide">Zakelijk</a>
+					<a href="#" id=buttonAllTodosWeergeven data-role="button" data-transition="none">Alle</a>
+					<a href="#" id=buttonPriveTodosWeergeven data-role="button" data-transition="none">Prive</a>
+					<a href="#" id=buttonZakelijkeTodosWeergeven data-role="button" data-transition="none">Zakelijk</a>
 					</div>
 				</div>
 			</div>
@@ -408,9 +401,9 @@
 			<div data-role="footer" data-position="fixed" data-theme="f">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#pageHome" data-icon="fahome" data-transition="slide">Home</a>
-						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="slide">Personen</a>
-						<li><a href="#pageTodoHoofd" data-icon="list-alt" class="ui-btn-active ui-state-persist" data-transition="slide">To-do's</a>
+						<li><a href="#pageHome" data-icon="fahome" data-transition="none">Home</a>
+						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="none">Personen</a>
+						<li><a href="#pageTodoHoofd" data-icon="list-alt" class="ui-btn-active ui-state-persist" data-transition="none">To-do's</a>
 					</ul>
 				</div>
 			</div>
@@ -420,13 +413,18 @@
 		<div data-role="page" id="pageTodoDetails" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
 			<div data-role="header" data-position="fixed" data-theme="f">
 				<h1>To-do details</h1>
-				<div id="navgroup">
-						<a id="buttonVerwijderTodo" href="#" data-role="button" data-iconpos="right" data-icon="delete">Verwijder to-do</a>
-						<a id="buttonWijzigTodo" href="#" data-role="button" data-iconpos="right" data-icon="edit">Wijzig to-do</a>
-				</div>	
+                <div id="navgroup">
+					<div data-role="controlgroup" data-type="horizontal">
+                    <a id="buttonVerwijderTodo" href="#" data-role="button" data-iconpos="right" data-icon="delete">Verwijder to-do</a>
+                    <a id="buttonWijzigTodo" href="#" data-role="button" data-iconpos="right" data-icon="edit">Wijzig to-do</a>
+					</div>
+                </div>
+
 			</div>
 			<div data-role="content">
-				<div>
+
+
+                <div>
 					<a id="buttonOpenPlaats" href="#" data-role="button" data-iconpos="right" data-icon="map-marker">Open plaats van oplevering</a>
 					<a id="buttonTodoAfgehandeld" href="#" data-role="button" data-iconpos="right" data-icon="facheck">To-do afgehandeld</a>
 				</div>
@@ -434,9 +432,9 @@
 			<div data-role="footer" data-position="fixed" data-theme="f">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#pageHome" data-icon="fahome" data-transition="slide">Home</a>
-						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="slide">Personen</a>
-						<li><a href="#pageTodoHoofd" data-icon="list-alt" class="ui-btn-active ui-state-persist" data-transition="slide">To-do's</a>
+						<li><a href="#pageHome" data-icon="fahome" data-transition="none">Home</a>
+						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="none">Personen</a>
+						<li><a href="#pageTodoHoofd" data-icon="list-alt" class="ui-btn-active ui-state-persist" data-transition="none">To-do's</a>
 					</ul>
 				</div>
 			</div>
@@ -455,9 +453,9 @@
 			<div data-role="footer" data-position="fixed" data-theme="f">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#pageHome" data-icon="fahome" data-transition="slide">Home</a>
-						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="slide">Personen</a>
-						<li><a href="#pageTodoHoofd" data-icon="list-alt" class="ui-btn-active ui-state-persist" data-transition="slide">To-do's</a>
+						<li><a href="#pageHome" data-icon="fahome" data-transition="none">Home</a>
+						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="none">Personen</a>
+						<li><a href="#pageTodoHoofd" data-icon="list-alt" class="ui-btn-active ui-state-persist" data-transition="none">To-do's</a>
 					</ul>
 				</div>
 			</div>
@@ -527,9 +525,9 @@
 			<div data-role="footer" data-position="fixed" data-theme="f">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#pageHome" data-icon="fahome" data-transition="slide">Home</a>
-						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="slide">Personen</a>
-						<li><a href="#pageTodoHoofd" data-icon="list-alt" class="ui-btn-active ui-state-persist" data-transition="slide">To-do's</a>
+						<li><a href="#pageHome" data-icon="fahome" data-transition="none">Home</a>
+						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="none">Personen</a>
+						<li><a href="#pageTodoHoofd" data-icon="list-alt" class="ui-btn-active ui-state-persist" data-transition="none">To-do's</a>
 					</ul>
 				</div>
 			</div>

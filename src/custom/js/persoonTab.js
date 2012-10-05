@@ -95,7 +95,7 @@ function showPersoonDetails(emailInvoer)
 		  var telefoonNummer = row.telefoonNummer;
 	
 	  var html = "<p>Hieronder vind u detailinformatie van de geselecteerde persoon. </p>";
-	  html += "<ul data-role=" + "listview" + " data-inset=" + "true" + " data-theme='f'" +">";
+	  html += "<ul data-role=" + "listview" + " data-inset=" + "true" + " data-theme='c'" +">";
       html += "<li>" + "Voornaam: " + voorNaam + "</li>";
 	  html += "<li>" + "Achternaam: " + achterNaam + "</li>";
 	  html += "<li>" + "Geslacht: " + geslacht + "</li>";

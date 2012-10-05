@@ -9,7 +9,7 @@ $("#buttonResetData").bind ("click", function (event)
 			   var sqlQuery2 = "DELETE FROM persoon";
 			   transaction.executeSql (sqlQuery2, undefined, ok, error);
 		});
-		$.mobile.changePage ($("#pageHome"), { transition: "slide"});
+		$.mobile.changePage ($("#pageHome"), { transition: "none"});
 	});
 });
 

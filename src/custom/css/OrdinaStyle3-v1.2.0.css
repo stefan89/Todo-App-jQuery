@@ -1,12 +1,14 @@
 /*
-* jQuery Mobile Framework 1.1.1 1981b3f5ec22675ae47df8f0bdf9622e7780e90e
+* jQuery Mobile Framework Git Build: SHA1: c2d61e2e592c67519d9a9ed0ba796fa44787e136 <> Date: Tue Sep 25 10:38:12 2012 -0700
 * http://jquerymobile.com
 *
 * Copyright 2012 jQuery Foundation and other contributors
-* Dual licensed under the MIT or GPL Version 2 licenses.
+* Released under the MIT license.
 * http://jquery.org/license
 *
 */
+
+
 /* Swatches */
 
 /* A
@@ -51,7 +53,7 @@
 .ui-bar-a select,
 .ui-bar-a textarea,
 .ui-bar-a button {
-	  font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+	 font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 }
 .ui-body-a,
 .ui-overlay-a {
@@ -75,7 +77,7 @@
 .ui-body-a select,
 .ui-body-a textarea,
 .ui-body-a button {
-	  font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+	 font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 }
 .ui-body-a .ui-link-inherit {
 	color: #ffffff /*{a-body-color}*/;
@@ -154,7 +156,7 @@
 .ui-btn-up-a,
 .ui-btn-hover-a,
 .ui-btn-down-a {
-	  font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+	 font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 	text-decoration: none;
 }
 
@@ -201,7 +203,7 @@
 .ui-bar-b select,
 .ui-bar-b textarea,
 .ui-bar-b button {
-	  font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+	 font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 }
 .ui-body-b,
 .ui-overlay-b {
@@ -225,7 +227,7 @@
 .ui-body-b select,
 .ui-body-b textarea,
 .ui-body-b button {
-	  font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+	 font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 }
 .ui-body-b .ui-link-inherit {
 	color: #333333 /*{b-body-color}*/;
@@ -304,7 +306,7 @@
 .ui-btn-up-b,
 .ui-btn-hover-b,
 .ui-btn-down-b {
-	  font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+	 font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 	text-decoration: none;
 }
 
@@ -353,7 +355,7 @@
 .ui-bar-c select,
 .ui-bar-c textarea,
 .ui-bar-c button {
-	  font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+	 font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 }
 .ui-body-c,
 .ui-overlay-c {
@@ -377,7 +379,7 @@
 .ui-body-c select,
 .ui-body-c textarea,
 .ui-body-c button {
-	  font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+	 font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 }
 .ui-body-c .ui-link-inherit {
 	color: #333333 /*{c-body-color}*/;
@@ -456,7 +458,7 @@
 .ui-btn-up-c,
 .ui-btn-hover-c,
 .ui-btn-down-c {
-	  font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+	 font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 	text-decoration: none;
 }
 
@@ -505,7 +507,7 @@
 .ui-bar-d select,
 .ui-bar-d textarea,
 .ui-bar-d button {
-	  font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+	 font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 }
 .ui-body-d,
 .ui-overlay-d {
@@ -529,7 +531,7 @@
 .ui-body-d select,
 .ui-body-d textarea,
 .ui-body-d button {
-	  font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+	 font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 }
 .ui-body-d .ui-link-inherit {
 	color: #333333 /*{d-body-color}*/;
@@ -608,7 +610,7 @@
 .ui-btn-up-d,
 .ui-btn-hover-d,
 .ui-btn-down-d {
-	  font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+	 font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 	text-decoration: none;
 }
 
@@ -657,7 +659,7 @@
 .ui-bar-e select,
 .ui-bar-e textarea,
 .ui-bar-e button {
-	  font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+	 font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 }
 .ui-body-e,
 .ui-overlay-e {
@@ -681,7 +683,7 @@
 .ui-body-e select,
 .ui-body-e textarea,
 .ui-body-e button {
-	  font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+	 font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 }
 .ui-body-e .ui-link-inherit {
 	color: #333333 /*{e-body-color}*/;
@@ -760,7 +762,7 @@
 .ui-btn-up-e,
 .ui-btn-hover-e,
 .ui-btn-down-e {
-	  font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+	 font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 	text-decoration: none;
 }
 
@@ -945,7 +947,7 @@ a.ui-link-inherit {
 	background-image:     -ms-linear-gradient( #de6815 /*{global-active-background-start}*/, #e76d16 /*{global-active-background-end}*/); /* IE10 */
 	background-image:      -o-linear-gradient( #de6815 /*{global-active-background-start}*/, #e76d16 /*{global-active-background-end}*/); /* Opera 11.10+ */
 	background-image:         linear-gradient( #de6815 /*{global-active-background-start}*/, #e76d16 /*{global-active-background-end}*/);
-	  font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+	 font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 }
 .ui-btn-active:visited,
 .ui-btn-active:hover,
@@ -1041,17 +1043,14 @@ a.ui-link-inherit {
 /* Interaction cues
 -----------------------------------------------------------------------------------------------------------*/
 .ui-disabled {
-	opacity: 							.3;
+	filter: Alpha(Opacity=30);
+	opacity: .3;
+	zoom: 1;
 }
 .ui-disabled,
 .ui-disabled a {
 	cursor: default !important;
 	pointer-events: none;
-}
-.ui-disabled .ui-btn-text {
-	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=30)";
-	filter: alpha(opacity=30);
-	zoom: 1;
 }
 
 /* Icons
@@ -1179,7 +1178,8 @@ a.ui-link-inherit {
 
 
 /* checks,radios */
-.ui-checkbox .ui-icon {
+.ui-checkbox .ui-icon,
+.ui-selectmenu-list .ui-icon {
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
@@ -1264,19 +1264,19 @@ a.ui-link-inherit {
 /* radius clip workaround for cleaning up corner trapping */
 .ui-corner-tl,
 .ui-corner-tr,
-.ui-corner-bl, 
+.ui-corner-bl,
 .ui-corner-br,
 .ui-corner-top,
-.ui-corner-bottom, 
+.ui-corner-bottom,
 .ui-corner-right,
 .ui-corner-left,
 .ui-corner-all,
 .ui-btn-corner-tl,
 .ui-btn-corner-tr,
-.ui-btn-corner-bl, 
+.ui-btn-corner-bl,
 .ui-btn-corner-br,
 .ui-btn-corner-top,
-.ui-btn-corner-bottom, 
+.ui-btn-corner-bottom,
 .ui-btn-corner-right,
 .ui-btn-corner-left,
 .ui-btn-corner-all {
@@ -1290,8 +1290,8 @@ a.ui-link-inherit {
 
 .ui-overlay {
 	background: #666;
-	opacity: .5;
 	filter: Alpha(Opacity=50);
+	opacity: .5;
 	position: absolute;
 	width: 100%;
 	height: 100%;

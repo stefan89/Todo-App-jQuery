@@ -136,9 +136,9 @@ function showTodos(statusInvoer, typeInvoer)
 				
 			}
 		  }
-		  else 
+		  else
 		  {
-			html += "<li> Geen todo's gevonden met deze status en type </li>";
+              html += "<li data-theme='c'> Geen todo's gevonden met deze status en type </li>";
 		  }
 		  html += "</ul>";
 		  	  
@@ -150,7 +150,7 @@ function showTodos(statusInvoer, typeInvoer)
 			var ul = content.find ("ul");
 			ul.listview ();
 		  });
-			$.mobile.changePage ($("#pageTodoLijst"), { transition: "slide"});
+			$.mobile.changePage ($("#pageTodoLijst"), { transition: "none"});
 		  
 		}, error);
   });
@@ -255,7 +255,7 @@ function refreshTodoList(typeInvoer, statusInvoer)
 		  }
 		  else 
 		  {
-			html += "<li> Geen todo's gevonden met deze status en type </li>";
+			html += "<li data-theme='c'> Geen todo's gevonden met deze status en type </li>";
 		  }
 			$('.OnderhoudenListView').html(html);
 			$(".OnderhoudenListView").listview('refresh');
@@ -294,7 +294,7 @@ function showTodoDetails(todoIdInvoer)
 		    
 	  var html = "<p>Hieronder vind u detailinformatie van de geselecteerde to-do. </p>";
 
-	  html += "<ul data-role=" + "listview" + " class='listviewDetailsTodo'" +" data-inset=" + "true" + " data-theme='f'" + " data-name="+ todoId + " data-name2="+ plaatsOplevering+ " >";
+	  html += "<ul data-role=" + "listview" + " class='listviewDetailsTodo'" +" data-inset=" + "true" + " data-theme='c'" + " data-name="+ todoId + " data-name2="+ plaatsOplevering+ " >";
 	  html += "<li>" + "E-mail persoon: " +  email +"</li>";
       html += "<li>" + "Korte omschrijving: " + korteOmschrijving + "</li>";
 	  html += "<li>" + "Lange omschrijving: " + langeOmschrijving + "</li>";
@@ -328,7 +328,7 @@ function showTodoDetails(todoIdInvoer)
         var ul = content.find ("ul");
         ul.listview ();
       });
-        $.mobile.changePage ($("#pageTodoDetails"), { transition: "slide"});
+        $.mobile.changePage ($("#pageTodoDetails"), { transition: "none"});
 	}, error);
   });
 }
@@ -364,7 +364,7 @@ function wijzigTodo(todoIdInvoer)
 			$("#typeWijzig").val(type);
 			$("#todoIdWijzig").hide();
       });
-        $.mobile.changePage ($("#pageTodoWijzig"), { transition: "slide"});
+        $.mobile.changePage ($("#pageTodoWijzig"), { transition: "none"});
 	}, error);
   });
 }
@@ -417,6 +417,6 @@ $("#pageTodoDetails").live('pageinit', function() { //Todo detailpagina button '
 				}
 			});
 		});	
-		 $.mobile.changePage ($('#pageTodoMaps'), { transition: "slide"});
+		 $.mobile.changePage ($('#pageTodoMaps'), { transition: "none"});
 	}); 
 });
