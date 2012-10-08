@@ -12,7 +12,6 @@ function refreshPage(htmlInvoer, pageInvoer) //refresh the page when data is col
 
 
 
-
 function succeeded(titleTextInvoer, buttonTextInvoer, callback) {
   $("#informatieDialog .informatieDialogH3Text").text(titleTextInvoer);
   $("#informatieDialog .informatieDialog-do").text(buttonTextInvoer).on("click.informatieDialog", function() {

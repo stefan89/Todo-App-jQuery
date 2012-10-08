@@ -1,4 +1,3 @@
-//$("#pageTodoToevoeg").live('pageinit', function()
 $("#pageTodoToevoeg").on('pageshow', function()
 {
   html = "";
@@ -9,7 +8,6 @@ $("#pageTodoToevoeg").on('pageshow', function()
     
 	function (transaction, result)
     {
-		
 		if (result.rows.length)
 		{
 			for (var i = 0; i < result.rows.length; i++) 
@@ -20,10 +18,7 @@ $("#pageTodoToevoeg").on('pageshow', function()
 				var email = row.email;
 				
 				html += ('<option value="'+ email + '" class="dropDownBlk">'+ voorNaam + " " + achterNaam +'</option>');
-				//$('#selectPersoon').append('<option value="'+ email + '" class="dropDownBlk">'+ voorNaam + " " + achterNaam +'</option>');
-				
 			}
-			
 		}
 		$('#selectPersoon').html(html);
 		$("#selectPersoon").selectmenu('refresh', true); 
@@ -31,10 +26,6 @@ $("#pageTodoToevoeg").on('pageshow', function()
   });
 });
 
-
-//	$("#selectPersoon").selectmenu('refresh', true); 
-//	alert("hoi"));
-//}
 
 
 $( "#formTodo" ).validate({ //valideren ingevulde form data Nieuwe todo
@@ -121,7 +112,7 @@ function showTodos(statusInvoer, typeInvoer)
 
 		function (transaction, result)
 		{
-		  var html = '<ul id="OnderhandenTodoListview " data-role="listview" + " class="OnderhoudenListView" + data-filter="true" + " data-filter-placeholder="Zoek to-do..." + data-name=' + statusInvoer + '>';
+		  var html = '<ul id="OnderhandenTodoListview " data-role="listview" + " class="todoListView" + data-filter="true" + " data-filter-placeholder="Zoek to-do..." + data-name=' + statusInvoer + '>';
 		  
 		  if (result.rows.length) 
 		  {
@@ -167,7 +158,7 @@ function showTodos(statusInvoer, typeInvoer)
 	
 $("#buttonAllTodosWeergeven").bind("click", function ()
 {
-		var status = $(".OnderhoudenListView").attr('data-name');
+		var status = $(".todoListView").attr('data-name');
 		refreshTodoList("Alle", status);
 		$(this).addClass('ui-btn-active');
 		$("#buttonPriveTodosWeergeven").removeClass('ui-btn-active');
@@ -175,7 +166,7 @@ $("#buttonAllTodosWeergeven").bind("click", function ()
 });
 $("#buttonPriveTodosWeergeven").bind("click", function ()
 {		
-		var status = $(".OnderhoudenListView").attr('data-name');
+		var status = $(".todoListView").attr('data-name');
 		refreshTodoList("Prive", status);
 		$(this).addClass('ui-btn-active');
 		$("#buttonAllTodosWeergeven").removeClass('ui-btn-active');
@@ -183,7 +174,7 @@ $("#buttonPriveTodosWeergeven").bind("click", function ()
 });	
 $("#buttonZakelijkeTodosWeergeven").bind("click", function ()
 {
-		var status = $(".OnderhoudenListView").attr('data-name');
+		var status = $(".todoListView").attr('data-name');
 		refreshTodoList("Zakelijk", status);
 		$(this).addClass('ui-btn-active');
 		$("#buttonAllTodosWeergeven").removeClass('ui-btn-active');
@@ -265,8 +256,8 @@ function refreshTodoList(typeInvoer, statusInvoer)
 		  {
 			html += "<li data-theme='c'> Geen todo's gevonden met deze status en type </li>";
 		  }
-			$('.OnderhoudenListView').html(html);
-			$(".OnderhoudenListView").listview('refresh');
+			$('.todoListView').html(html);
+			$(".todoListView").listview('refresh');
 		}, error);
 	}); 
 }
