@@ -1,5 +1,7 @@
-$("#pageTodoToevoeg").live('pageinit', function()
+//$("#pageTodoToevoeg").live('pageinit', function()
+$("#pageTodoToevoeg").on('pageshow', function()
 {
+  html = "";
   db.transaction (function (transaction) 
   {
     var sqlQuery = "SELECT * FROM persoon order by UPPER(achterNaam)";
@@ -7,6 +9,7 @@ $("#pageTodoToevoeg").live('pageinit', function()
     
 	function (transaction, result)
     {
+		
 		if (result.rows.length)
 		{
 			for (var i = 0; i < result.rows.length; i++) 
@@ -15,15 +18,23 @@ $("#pageTodoToevoeg").live('pageinit', function()
 				var voorNaam = row.voorNaam;
 				var achterNaam = row.achterNaam;
 				var email = row.email;
-		 
-				$('#selectPersoon').append('<option value="'+ email + '" class="dropDownBlk">'+ voorNaam + " " + achterNaam +'</option>');
+				
+				html += ('<option value="'+ email + '" class="dropDownBlk">'+ voorNaam + " " + achterNaam +'</option>');
+				//$('#selectPersoon').append('<option value="'+ email + '" class="dropDownBlk">'+ voorNaam + " " + achterNaam +'</option>');
+				
 			}
+			
 		}
+		$('#selectPersoon').html(html);
 		$("#selectPersoon").selectmenu('refresh', true); 
     }, error);
   });
 });
 
+
+//	$("#selectPersoon").selectmenu('refresh', true); 
+//	alert("hoi"));
+//}
 
 
 $( "#formTodo" ).validate({ //valideren ingevulde form data Nieuwe todo
@@ -46,11 +57,11 @@ $("#buttonVoegTodoToe").bind ("click", function (event) //Todo toevoegen
 	{
 		var sqlQuery = "INSERT INTO todo (korteOmschrijving, langeOmschrijving, datum, status, urgentie, type, plaatsOplevering, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		transaction.executeSql (sqlQuery, [korteOmschrijving, langeOmschrijving, datum, status, urgentie, type, plaatsOplevering, email], function ()
-    {
+		{
 		succeeded("Succesvol toegevoegd!", "OK", function() {
 			showTodos("Onderhanden", "Alle");
 		});
-    }, error);
+		}, error);
 	});
 });
 
@@ -74,12 +85,11 @@ $("#buttonWijzigTodoToe").bind ("click", function (event) //Todo wijzigen
 	{
 		var sqlQuery = 'UPDATE todo SET korteOmschrijving=?, langeOmschrijving=?, datum=?, urgentie=?, plaatsOplevering=?, type=? WHERE todoId=?;';
 		transaction.executeSql (sqlQuery, [korteOmschrijving, langeOmschrijving, datum, urgentie, plaatsOplevering, type, todoId], function()
-    {
+		{
 		succeeded("Succesvol gewijzigd!", "OK", function() {
 			showTodos("Onderhanden", "Alle");
 		});
-		
-    }, error);
+		}, error);
 	});
 });
 
@@ -133,7 +143,6 @@ function showTodos(statusInvoer, typeInvoer)
 			  html += "<p> Urgentie: <strong>" + urgentie + "</strong></p>";
 			  html += "<p>Datum: <strong>" + datum + "</strong></p>";
 			  html += "</a></li>";
-				
 			}
 		  }
 		  else
@@ -151,7 +160,6 @@ function showTodos(statusInvoer, typeInvoer)
 			ul.listview ();
 		  });
 			$.mobile.changePage ($("#pageTodoLijst"), { transition: "none"});
-		  
 		}, error);
   });
 }
@@ -278,7 +286,6 @@ function showTodoDetails(todoIdInvoer)
 	var sqlQuery = "SELECT * FROM todo where todoId =" + "'"+ todoIdInvoer +"'";
 	
     transaction.executeSql (sqlQuery, undefined, 
-    
 	function (transaction, result)
     {
 		  var row = result.rows.item (0);
@@ -417,6 +424,6 @@ $("#pageTodoDetails").live('pageinit', function() { //Todo detailpagina button '
 				}
 			});
 		});	
-		 $.mobile.changePage ($('#pageTodoMaps'), { transition: "none"});
+		$.mobile.changePage ($('#pageTodoMaps'), { transition: "none"});
 	}); 
 });

@@ -61,7 +61,7 @@ function showPersonen()
       }
       else
       {
-        html += "<li> Geen Personen gevonden </li>";
+		html += "<li data-theme='c'> Geen personen gevonden </li>";
       }
       html += "</ul>";
       refreshPage(html,"#pagePersoonLijst");
