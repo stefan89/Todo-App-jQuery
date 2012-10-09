@@ -71,9 +71,9 @@
 			<div data-role="footer" data-position="fixed" data-theme="f">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#pageHome" data-icon="fahome" class="ui-btn-active ui-state-persist" data-transition="none">Home</a>
-						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="none">Personen</a>
-						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="none">To-do's</a>
+						<li><a href="#pageHome" data-icon="fahome" class="ui-btn-active ui-state-persist" class="homeWeergeven" data-transition="none">Home</a>
+						<li><a href="#" class="persoonlijstWeergeven" data-icon="user" data-transition="none" onClick="showPersonen()">Personen</a>
+						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">To-do's</a>
 					</ul>
 				</div>
 			</div>
@@ -115,9 +115,9 @@
 			<div data-role="footer" data-position="fixed" data-theme="f">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#pageHome" data-icon="fahome" class="ui-btn-active ui-state-persist" data-transition="none">Home</a>
-						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="none">Personen</a>
-						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="none">To-do's</a>
+						<li><a href="#pageHome" class="homeWeergeven" data-icon="fahome" data-transition="none">Home</a>
+						<li><a href="#" class="persoonlijstWeergeven" data-icon="user" data-transition="none" onClick="showPersonen()">Personen</a>
+						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">To-do's</a>
 					</ul>
 				</div>
 			</div>
@@ -142,9 +142,9 @@
 			<div data-role="footer" data-position="fixed" data-theme="f">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#pageHome" data-icon="fahome" class="ui-btn-active ui-state-persist" data-transition="none">Home</a>
-						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="none">Personen</a>
-						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="none">To-do's</a>
+						<li><a href="#pageHome" class="homeWeergeven" data-icon="fahome" data-transition="none">Home</a>
+						<li><a href="#" class="persoonlijstWeergeven" data-icon="user" data-transition="none" onClick="showPersonen()">Personen</a>
+						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">To-do's</a>
 					</ul>
 				</div>
 			</div>
@@ -155,7 +155,7 @@
 	<!------------------------------------------------------------------------------------------------------------------------------------------------->
 	<!--																PERSOON TAB																 	 -->
 	<!------------------------------------------------------------------------------------------------------------------------------------------------->	
-	<!--Persoon hoofd pagina-->
+	<!--Persoon hoofd pagina
 		<div data-role="page" id="pagePersoonHoofd" data-theme="f">
 			<div data-role="header" data-position="fixed" data-theme="f">
 				<h1>Personen</h1>
@@ -175,7 +175,7 @@
 					</ul>
 				</div>
 			</div>
-		</div>
+		</div>-->
 		
 	<!-- Persoon toevoeg pagina -->
 		<div data-role="page" id="pagePersoonToevoeg" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
@@ -235,27 +235,28 @@
 			<div data-role="footer" data-position="fixed" data-theme="f">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#pageHome" data-icon="fahome" data-transition="none">Home</a>
-						<li><a href="#pagePersoonHoofd" data-icon="user" class="ui-btn-active ui-state-persist" data-transition="none">Personen</a>
-						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="none">To-do's</a>
+						<li><a href="#pageHome" class="homeWeergeven" data-icon="fahome" data-transition="none">Home</a>
+						<li><a href="#" class="persoonlijstWeergeven" data-icon="user" data-transition="none" onClick="showPersonen()">Personen</a>
+						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">To-do's</a>
 					</ul>
 				</div>
 			</div>
 		</div>	
 		
 	<!-- Persoon lijst pagina -->
-		<div data-role="page" id="pagePersoonLijst" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
+		<div data-role="page" id="pagePersoonLijst" data-theme="f">
 			<div data-role="header" data-position="fixed" data-theme="f">
-				<h1>Personenlijst</h1>
+				<h1>Personen</h1>
+				<a href="#pagePersoonToevoeg" data-transition="none" data-icon="plus" data-iconpos="right" class="ui-btn-right">Nieuwe</a>
 			</div>
 			<div data-role="content" data-filter="true" data-filter-placeholder="Zoek persoon...">
 			</div>
 			<div data-role="footer" data-position="fixed" data-theme="f">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#pageHome" data-icon="fahome" data-transition="none">Home</a>
-						<li><a href="#pagePersoonHoofd" data-icon="user" class="ui-btn-active ui-state-persist" data-transition="none">Personen</a>
-						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="none">To-do's</a>
+						<li><a href="#pageHome" class="homeWeergeven" data-icon="fahome" data-transition="none">Home</a>
+						<li><a href="#" class="persoonlijstWeergeven" data-icon="user" data-transition="none" onClick="showPersonen()">Personen</a>
+						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">To-do's</a>
 					</ul>
 				</div>
 			</div>
@@ -271,9 +272,9 @@
 			<div data-role="footer" data-position="fixed" data-theme="f">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#pageHome" data-icon="fahome" data-transition="none">Home</a>
-						<li><a href="#pagePersoonHoofd" data-icon="user" class="ui-btn-active ui-state-persist" data-transition="none">Personen</a>
-						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="none">To-do's</a>
+						<li><a href="#pageHome" class="homeWeergeven" data-icon="fahome" data-transition="none">Home</a>
+						<li><a href="#" class="persoonlijstWeergeven" data-icon="user" data-transition="none" onClick="showPersonen()">Personen</a>
+						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">To-do's</a>
 					</ul>
 				</div>
 			</div>
@@ -300,9 +301,9 @@
 			<div data-role="footer" data-position="fixed" data-theme="f">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#pageHome" data-icon="fahome" data-transition="none">Home</a>
-						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="none">Personen</a>
-						<li><a href="#pageTodoHoofd" data-icon="list-alt" class="ui-btn-active ui-state-persist" data-transition="none">To-do's</a>
+						<li><a href="#pageHome" class="homeWeergeven" data-icon="fahome" data-transition="none">Home</a>
+						<li><a href="#" class="persoonlijstWeergeven" data-icon="user" data-transition="none" onClick="showPersonen()">Personen</a>
+						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">To-do's</a>
 					</ul>
 				</div>
 			</div>
@@ -376,9 +377,9 @@
 			<div data-role="footer" data-position="fixed" data-theme="f">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#pageHome" data-icon="fahome" data-transition="none">Home</a>
-						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="none">Personen</a>
-						<li><a href="#pageTodoHoofd" data-icon="list-alt" class="ui-btn-active ui-state-persist" data-transition="none">To-do's</a>
+						<li><a href="#pageHome" class="homeWeergeven" data-icon="fahome" data-transition="none">Home</a>
+						<li><a href="#" class="persoonlijstWeergeven" data-icon="user" data-transition="none" onClick="showPersonen()">Personen</a>
+						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">To-do's</a>
 					</ul>
 				</div>
 			</div>
@@ -388,6 +389,7 @@
 		<div data-role="page" id="pageTodoLijst" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
 			<div data-role="header" data-position="fixed" data-theme="f">
 				<h1 id="pageTodoLijstH1"></h1>
+				<a href="#pageTodoToevoeg" data-transition="none" data-icon="plus" data-iconpos="right" class="ui-btn-right">Nieuwe</a>
 				<div id="navgroup" class="pageTodoLijstNavgroup">
 					<div data-role="controlgroup" data-type="horizontal">
 					<a href="#" id=buttonAllTodosWeergeven data-role="button" data-transition="none">Alle</a>
@@ -399,11 +401,18 @@
 			<div data-role="content">
 			</div>
 			<div data-role="footer" data-position="fixed" data-theme="f">
+			<!--<div data-role="navbar">
+				<ul>
+					<li><a href="#" id=buttonOnderhandenWeergeven class="ui-btn-active">Onderhanden todo's</a>
+					<li><a href="#" id=buttonAfgehandeldeWeergeven>Afgehandelde todo's</a>
+					<li><a href="#" id=buttonOnderAfgehandWeergeven>Alle todo's</a>
+				</ul>
+			</div>-->
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#pageHome" data-icon="fahome" data-transition="none">Home</a>
-						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="none">Personen</a>
-						<li><a href="#pageTodoHoofd" data-icon="list-alt" class="ui-btn-active ui-state-persist" data-transition="none">To-do's</a>
+						<li><a href="#pageHome" class="homeWeergeven" data-icon="fahome" data-transition="none">Home</a>
+						<li><a href="#" class="persoonlijstWeergeven" data-icon="user" data-transition="none" onClick="showPersonen()">Personen</a>
+						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">To-do's</a>
 					</ul>
 				</div>
 			</div>
@@ -432,9 +441,9 @@
 			<div data-role="footer" data-position="fixed" data-theme="f">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#pageHome" data-icon="fahome" data-transition="none">Home</a>
-						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="none">Personen</a>
-						<li><a href="#pageTodoHoofd" data-icon="list-alt" class="ui-btn-active ui-state-persist" data-transition="none">To-do's</a>
+						<li><a href="#pageHome" class="homeWeergeven" data-icon="fahome" data-transition="none">Home</a>
+						<li><a href="#" class="persoonlijstWeergeven" data-icon="user" data-transition="none" onClick="showPersonen()">Personen</a>
+						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">To-do's</a>
 					</ul>
 				</div>
 			</div>
@@ -453,9 +462,9 @@
 			<div data-role="footer" data-position="fixed" data-theme="f">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#pageHome" data-icon="fahome" data-transition="none">Home</a>
-						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="none">Personen</a>
-						<li><a href="#pageTodoHoofd" data-icon="list-alt" class="ui-btn-active ui-state-persist" data-transition="none">To-do's</a>
+						<li><a href="#pageHome" class="homeWeergeven" data-icon="fahome" data-transition="none">Home</a>
+						<li><a href="#" class="persoonlijstWeergeven" data-icon="user" data-transition="none" onClick="showPersonen()">Personen</a>
+						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">To-do's</a>
 					</ul>
 				</div>
 			</div>
@@ -525,9 +534,9 @@
 			<div data-role="footer" data-position="fixed" data-theme="f">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#pageHome" data-icon="fahome" data-transition="none">Home</a>
-						<li><a href="#pagePersoonHoofd" data-icon="user" data-transition="none">Personen</a>
-						<li><a href="#pageTodoHoofd" data-icon="list-alt" class="ui-btn-active ui-state-persist" data-transition="none">To-do's</a>
+						<li><a href="#pageHome" class="homeWeergeven" data-icon="fahome" data-transition="none">Home</a>
+						<li><a href="#" class="persoonlijstWeergeven" data-icon="user" data-transition="none" onClick="showPersonen()">Personen</a>
+						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">To-do's</a>
 					</ul>
 				</div>
 			</div>

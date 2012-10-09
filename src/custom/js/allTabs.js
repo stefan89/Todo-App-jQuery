@@ -1,3 +1,21 @@
+$('.homeWeergeven').bind("click", function (event) { //zet navigationbar buttonpressed
+	$(".homeWeergeven").addClass('ui-btn-active ui-state-persist'); 
+	$(".persoonlijstWeergeven").removeClass('ui-btn-active ui-state-persist');
+	$(".todolijstWeergeven").removeClass('ui-btn-active ui-state-persist');
+ });
+$('.persoonlijstWeergeven').bind("click", function (event) { //zet navigationbar buttonpressed
+	$(".homeWeergeven").removeClass('ui-btn-active ui-state-persist');
+	$(".persoonlijstWeergeven").addClass('ui-btn-active ui-state-persist'); 
+	$(".todolijstWeergeven").removeClass('ui-btn-active ui-state-persist');
+ });
+ $('.todolijstWeergeven').bind("click", function (event) { //zet navigationbar buttonpressed
+	$(".homeWeergeven").removeClass('ui-btn-active ui-state-persist');
+	$(".persoonlijstWeergeven").removeClass('ui-btn-active ui-state-persist'); 
+	$(".todolijstWeergeven").addClass('ui-btn-active ui-state-persist');
+ });
+
+
+
 function refreshPage(htmlInvoer, pageInvoer) //refresh the page when data is collected    	//Pagina opbouw veranderen en tonen
 {
       $(pageInvoer).unbind ().bind ("pagebeforeshow", function ()

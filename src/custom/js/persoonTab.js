@@ -65,6 +65,7 @@ function showPersonen()
       }
       html += "</ul>";
       refreshPage(html,"#pagePersoonLijst");
+	  //.val();
     }, error);
   });
 }
