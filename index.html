@@ -5,7 +5,7 @@
 			<meta name="apple-mobile-web-app-capable" content="yes">
 			<meta name="apple-mobile-web-app-status-bar-style" 	content="black"> <!-- maakt status bar zwart voor iOS devices -->
 			<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1"> 
-			<title>Todo App Stefan</title>
+			<title>Todo App Stefan - JQM</title>
 			<link rel="apple-touch-startup-image"  href="https://dl.dropbox.com/u/7454879/startscreenPOC.jpg" media="(max-device-width: 480px)"> <!-- start-up screen for iPhones -->
 			<link rel="shortcut icon" 	 href="src/custom/icons/todoIcon300x300.png">
 			<link rel="apple-touch-icon" href="src/custom/icons/todoIcon300x300.png" sizes="57x57">
@@ -40,33 +40,14 @@
 		<div data-role="page" id="pageHome" data-theme="f">
 			<div data-role="header" data-position="fixed" data-theme="f">
 				<h1>Home</h1>
-				<a href="#pageOver" data-transition="none" data-icon="info" class="ui-btn-left">Extra info</a>
+				<a href="#pageOver" data-transition="none" data-icon="info" class="ui-btn-left">Info</a>
 				<a href="#pageReset" data-transition="none" data-icon="gear" class="ui-btn-right">Reset</a>
 			</div>
 			<div data-role="content">		
 				<p>
 					Dit is een mobiele app om een to-do (taken) lijst bij te houden voor meerdere personen.
 				</p>
-				<div data-role="collapsible" data-collapsed="true">
-					<h2>Tekst 1</h2>
-						<p class="pageHomeTekst"></p>
-				</div>
-				<div data-role="collapsible" data-collapsed="true">
-					<h2>Tekst 2</h2>
-						<p class="pageHomeTekst"></p>
-				</div>
-				<div data-role="collapsible" data-collapsed="true">
-					<h2>Tekst 3</h2>
-						<p class="pageHomeTekst"></p>
-				</div>
-				<div data-role="collapsible" data-collapsed="true">
-					<h2>Tekst 4</h2>
-						<p class="pageHomeTekst"></p>
-				</div>
-				<div data-role="collapsible" data-collapsed="true">
-					<h2>Tekst 5</h2>
-						<p class="pageHomeTekst"></p>
-				</div>
+				
 			</div>
 			<div data-role="footer" data-position="fixed" data-theme="f">
 				<div data-role="navbar">
@@ -83,6 +64,7 @@
 		<div data-role="page" id="pageOver" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
 			<div data-role="header" data-position="fixed" data-theme="f">
 				<h1>Over app</h1>
+				<a href="#pageMeerOver" data-transition="none" data-icon="info" class="ui-btn-right">Meer info</a>
 			</div>
 			<div data-role="content">
 				<div data-role="collapsible-set">
@@ -110,6 +92,44 @@
 								De app is ontwikkeld door Stefan Collette en fungeert als proof of concept applicatie voor een onderzoek.
 							</ul>
 					</div>
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="f">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageHome" class="homeWeergeven" data-icon="fahome" data-transition="none">Home</a>
+						<li><a href="#" class="persoonlijstWeergeven" data-icon="user" data-transition="none" onClick="showPersonen()">Personen</a>
+						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">To-do's</a>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Over pagina -->
+		<div data-role="page" id="pageMeerOver" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
+			<div data-role="header" data-position="fixed" data-theme="f">
+				<h1>Meer info</h1>
+			</div>
+			<div data-role="content">
+				<div data-role="collapsible" data-collapsed="true">
+					<h2>Tekst 1</h2>
+						<p class="pageHomeTekst"></p>
+				</div>
+				<div data-role="collapsible" data-collapsed="true">
+					<h2>Tekst 2</h2>
+						<p class="pageHomeTekst"></p>
+				</div>
+				<div data-role="collapsible" data-collapsed="true">
+					<h2>Tekst 3</h2>
+						<p class="pageHomeTekst"></p>
+				</div>
+				<div data-role="collapsible" data-collapsed="true">
+					<h2>Tekst 4</h2>
+						<p class="pageHomeTekst"></p>
+				</div>
+				<div data-role="collapsible" data-collapsed="true">
+					<h2>Tekst 5</h2>
+						<p class="pageHomeTekst"></p>
 				</div>
 			</div>
 			<div data-role="footer" data-position="fixed" data-theme="f">
@@ -154,29 +174,7 @@
 		
 	<!------------------------------------------------------------------------------------------------------------------------------------------------->
 	<!--																PERSOON TAB																 	 -->
-	<!------------------------------------------------------------------------------------------------------------------------------------------------->	
-	<!--Persoon hoofd pagina
-		<div data-role="page" id="pagePersoonHoofd" data-theme="f">
-			<div data-role="header" data-position="fixed" data-theme="f">
-				<h1>Personen</h1>
-			</div>
-			<div data-role="content">
-				<div data-role="controlgroup">
-					<a href="#pagePersoonToevoeg" data-icon="plus" data-iconpos="right" data-role="button" data-transition="none">Nieuwe persoon toevoegen</a>
-					<a href="#" data-icon="list" data-iconpos="right" data-role="button" data-transition="none" onClick="showPersonen()">Bestaande personen</a>
-				</div>
-			</div>
-			<div data-role="footer" data-position="fixed" data-theme="f">
-				<div data-role="navbar">
-					<ul>
-						<li><a href="#pageHome" data-icon="fahome" data-transition="none">Home</a>
-						<li><a href="#pagePersoonHoofd" data-icon="user" class="ui-btn-active ui-state-persist" data-transition="none">Personen</a>
-						<li><a href="#pageTodoHoofd" data-icon="list-alt" data-transition="none">To-do's</a>
-					</ul>
-				</div>
-			</div>
-		</div>-->
-		
+	<!------------------------------------------------------------------------------------------------------------------------------------------------->		
 	<!-- Persoon toevoeg pagina -->
 		<div data-role="page" id="pagePersoonToevoeg" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
 			<div data-role="header" data-position="fixed" data-theme="f">
@@ -247,7 +245,7 @@
 		<div data-role="page" id="pagePersoonLijst" data-theme="f">
 			<div data-role="header" data-position="fixed" data-theme="f">
 				<h1>Personen</h1>
-				<a href="#pagePersoonToevoeg" data-transition="none" data-icon="plus" data-iconpos="right" class="ui-btn-right">Nieuwe</a>
+				<a href="#pagePersoonToevoeg" data-transition="none" data-icon="plus" data-iconpos="right" class="ui-btn-right">Nieuw</a>
 			</div>
 			<div data-role="content" data-filter="true" data-filter-placeholder="Zoek persoon...">
 			</div>
@@ -389,7 +387,7 @@
 		<div data-role="page" id="pageTodoLijst" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
 			<div data-role="header" data-position="fixed" data-theme="f">
 				<h1 id="pageTodoLijstH1"></h1>
-				<a href="#pageTodoToevoeg" data-transition="none" data-icon="plus" data-iconpos="right" class="ui-btn-right">Nieuwe</a>
+				<a href="#pageTodoToevoeg" data-transition="none" data-icon="plus" data-iconpos="right" class="ui-btn-right">Nieuw</a>
 				<div id="navgroup" class="pageTodoLijstNavgroup">
 					<div data-role="controlgroup" data-type="horizontal">
 					<a href="#" id=buttonAllTodosWeergeven data-role="button" data-transition="none">Alle</a>
@@ -401,13 +399,6 @@
 			<div data-role="content">
 			</div>
 			<div data-role="footer" data-position="fixed" data-theme="f">
-			<!--<div data-role="navbar">
-				<ul>
-					<li><a href="#" id=buttonOnderhandenWeergeven class="ui-btn-active">Onderhanden todo's</a>
-					<li><a href="#" id=buttonAfgehandeldeWeergeven>Afgehandelde todo's</a>
-					<li><a href="#" id=buttonOnderAfgehandWeergeven>Alle todo's</a>
-				</ul>
-			</div>-->
 				<div data-role="navbar">
 					<ul>
 						<li><a href="#pageHome" class="homeWeergeven" data-icon="fahome" data-transition="none">Home</a>
