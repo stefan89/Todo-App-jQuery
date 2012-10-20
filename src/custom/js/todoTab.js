@@ -10,6 +10,7 @@ $("#pageTodoToevoeg").on('pageshow', function()
     {
 		if (result.rows.length)
 		{
+			console.log("aa");
 			for (var i = 0; i < result.rows.length; i++) 
 			{
 				var row = result.rows.item (i);
@@ -19,9 +20,15 @@ $("#pageTodoToevoeg").on('pageshow', function()
 				
 				html += ('<option value="'+ email + '" class="dropDownBlk">'+ voorNaam + " " + achterNaam +'</option>');
 			}
+					console.log("bb");
+					$('#selectPersoon').html(html);
+					$("#selectPersoon").selectmenu('refresh', true); 
 		}
-		$('#selectPersoon').html(html);
-		$("#selectPersoon").selectmenu('refresh', true); 
+		else{
+			succeeded("Er dient eerst een persoon toegevoegd te worden!", "OK", function() {
+				$('.persoonlijstWeergeven').trigger('click');		
+			});
+		}
     }, error);
   });
 });
