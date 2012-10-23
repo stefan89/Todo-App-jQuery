@@ -1,3 +1,10 @@
+$(function(){  //mobiscroll datepicker
+	var datumVandaag = new Date(); 
+	var maximaleDatum = new Date(datumVandaag.getFullYear()+20, datumVandaag.getMonth(), datumVandaag.getDate());
+		$('#datumOplevering').scroller({preset: 'date', theme: 'default', display: 'modal', mode: 'scroller', dateOrder: 'yy mm dd', lang: 'de', minDate: datumVandaag, maxDate: maximaleDatum});    
+});
+
+
 $("#pageTodoToevoeg").on('pageshow', function()
 {
   html = "";
@@ -119,7 +126,7 @@ function showTodos(statusInvoer, typeInvoer)
 
 		function (transaction, result)
 		{
-		  var html = '<ul id="OnderhandenTodoListview " data-role="listview" + " class="todoListView" + data-filter="true" + " data-filter-placeholder="Zoek to-do..." + data-name=' + statusInvoer + '>';
+		  var html = '<ul id="OnderhandenTodoListview " data-role="listview" + " class="todoListView" + data-filter="true" + " data-filter-placeholder="Zoek todo..." + data-name=' + statusInvoer + '>';
 		  
 		  if (result.rows.length) 
 		  {
@@ -297,7 +304,7 @@ function showTodoDetails(todoIdInvoer)
 		  var type = row.type;
 		  var status = row.status;
 		    
-	  var html = "<p>Hieronder vind u detailinformatie van de geselecteerde to-do. </p>";
+	  var html = "<p>Hieronder vind u detailinformatie van de geselecteerde todo. </p>";
 
 	  html += "<ul data-role=" + "listview" + " class='listviewDetailsTodo'" +" data-inset=" + "true" + " data-theme='c'" + " data-name="+ todoId + " data-name2="+ plaatsOplevering+ " >";
 	  html += "<li>" + "E-mail persoon: " +  email +"</li>";
@@ -378,7 +385,7 @@ function wijzigTodo(todoIdInvoer)
 
 $("#pageTodoDetails").live('pageinit', function() { //Todo detailpagina button 'handlers'
     
-	$('#buttonVerwijderTodo').live('click', function(event) {  // VERWIJDER SPECIFIEKE TO-DO
+	$('#buttonVerwijderTodo').live('click', function(event) {  // VERWIJDER SPECIFIEKE TODO
 		 var todoId = $(".listviewDetailsTodo").attr('data-name'); //Haalt value van te verwijderen todo op (detailView)
 		 areYouSure("Weet u het zeker?", "Ja", function() {
 			db.transaction (function (transaction) 
@@ -391,12 +398,12 @@ $("#pageTodoDetails").live('pageinit', function() { //Todo detailpagina button '
 		});
     });  
 	
-	$('#buttonWijzigTodo').live('click', function(event) {  // WIJZIG SPECIFIEKE TO-DO
+	$('#buttonWijzigTodo').live('click', function(event) {  // WIJZIG SPECIFIEKE TODO
 		var todoId = $(".listviewDetailsTodo").attr('data-name'); //Haalt value van te verwijderen todo op (detailView)
 		wijzigTodo(todoId);
     });  
 	
-	$('#buttonTodoAfgehandeld').live('click', function(event) { // Wijzig status van to-do naar afgehandeld
+	$('#buttonTodoAfgehandeld').live('click', function(event) { // Wijzig status van todo naar afgehandeld
 		 var todoId = $(".listviewDetailsTodo").attr('data-name'); //Haalt value van te verwijderen todo op (detailView)
 		 areYouSure("Weet u het zeker?", "Ja", function() {
 			db.transaction (function (transaction) 

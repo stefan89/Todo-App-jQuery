@@ -6,7 +6,7 @@
 			<meta name="apple-mobile-web-app-status-bar-style" 	content="black"> <!-- maakt status bar zwart voor iOS devices -->
 			<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1"> 
 			<title>Todo App Stefan - JQM</title>
-			<link rel="apple-touch-startup-image"  href="https://dl.dropbox.com/u/7454879/startscreenPOC.jpg" media="(max-device-width: 480px)"> <!-- start-up screen for iPhones -->
+			<!--<link rel="apple-touch-startup-image"  href="https://dl.dropbox.com/u/7454879/startscreenPOC.jpg" media="(max-device-width: 480px)">--> <!-- start-up screen for iPhones -->
 			<link rel="shortcut icon" 	 href="src/custom/icons/todoIcon300x300.png">
 			<link rel="apple-touch-icon" href="src/custom/icons/todoIcon300x300.png" sizes="57x57">
 			<link rel="apple-touch-icon" href="src/custom/icons/todoIcon300x300.png" sizes="114x114">
@@ -14,14 +14,18 @@
 			<link rel="stylesheet" type="text/css" href="src/custom/css/OrdinaStyle3-v1.2.0.min.css"/>  <!-- Custom theme (data-theme="f")-->
 			<link rel="stylesheet" type="text/css" href="src/custom/css/customCssSettings.css"/> <!-- custom css settings -->
 			<link rel="stylesheet" type="text/css" href="src/default/css/mobiscroll-2.0.3.custom.min.css"/>  <!-- mobiscroll datepicker -->
-			<link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" /> <!-- datepicker jQuery plug-in-->
+			
+			<!--<link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" /> --><!-- datepicker jQuery plug-in-->
+			
 			<link rel="stylesheet" type="text/css" href="src/default/css/jqm-icon-pack-2.1.2-fa.css" /> <!-- custom icons -->
 			<script type="text/javascript" src="src/default/js/jquery-1.8.2.min.js"></script> <!-- jQuery -->
 			<script type="text/javascript" src="src/custom/js/initiateDatabase.js"></script> <!-- initiate HTML5 Web SQL local storage -->
 			<script type="text/javascript" src="src/default/js/jquery.mobile-1.2.0.min.js"></script> <!-- jQuery mobile -->
 			<script type="text/javascript" src="src/custom/js/jquery.validate.js"></script>  <!-- validate jQuery plug-in -->
-			<script type="text/javascript" src="src/default/js/jqm-datebox.core.min.js"></script> <!-- datepicker jQuery plug-in-->
-			<script type="text/javascript" src="src/default/js/jqm-datebox.mode.calbox.min.js"></script> <!-- datepicker jQuery plug-in-->
+			
+			<!--<script type="text/javascript" src="src/default/js/jqm-datebox.core.min.js"></script> --><!-- datepicker jQuery plug-in-->
+			<!--<script type="text/javascript" src="src/default/js/jqm-datebox.mode.calbox.min.js"></script>--> <!-- datepicker jQuery plug-in-->
+			
 			<script type="text/javascript" src="src/default/js/mobiscroll.core-2.0.3.js"></script> <!-- mobiscroll datepicker-->
 			<script type="text/javascript" src="src/custom/js/mobiscroll.core-2.0.3-de.js"></script> <!-- mobiscroll datepicker-->
 			<script type="text/javascript" src="src/default/js/mobiscroll.datetime-2.0.3.js"></script> <!-- mobiscroll datepicker-->
@@ -45,7 +49,7 @@
 			</div>
 			<div data-role="content">		
 				<p>
-					Dit is een mobiele app om een to-do (taken) lijst bij te houden voor meerdere personen.
+					Dit is een mobiele app om een todo (taken) lijst bij te houden voor meerdere personen.
 				</p>
 				
 			</div>
@@ -54,7 +58,7 @@
 					<ul>
 						<li><a href="#pageHome" data-icon="fahome" class="ui-btn-active ui-state-persist" class="homeWeergeven" data-transition="none">Home</a>
 						<li><a href="#" class="persoonlijstWeergeven" data-icon="user" data-transition="none" onClick="showPersonen()">Personen</a>
-						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">To-do's</a>
+						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">Todo's</a>
 					</ul>
 				</div>
 			</div>
@@ -70,7 +74,7 @@
 				<div data-role="collapsible-set">
 					<div data-role="collapsible" data-collapsed="true" >
 						<h2>Wat is dit?</h2>
-							<ul>Een to-do lijst app ontwikkeld met jQuery Mobile, jQuery en HTML5 Web SQL Database.</ul>
+							<ul>Een todo lijst app ontwikkeld met jQuery Mobile, jQuery en HTML5 Web SQL Database.</ul>
 					</div>
 					<div data-role="collapsible" data-collapsed="true">
 						<h2>Waarom?</h2>
@@ -81,9 +85,9 @@
 					<div data-role="collapsible" data-collapsed="true">
 						<h2>Hoe werkt de app?</h2>
 							<ul>
-								Allereerst dient er een persoon te worden toegevoegd. Voor deze persoon kunnen vervolgens to-do's aangemaakt worden.
-								Het is mogelijk om meerdere personen toe te voegen. Elke persoon kan meerdere to-do's op zijn naam hebben staan.
-								Er kunnen geen to-do's toegevoegd worden als er nog geen persoon is aangemaakt.
+								Allereerst dient er een persoon te worden toegevoegd. Voor deze persoon kunnen vervolgens todo's aangemaakt worden.
+								Het is mogelijk om meerdere personen toe te voegen. Elke persoon kan meerdere todo's op zijn naam hebben staan.
+								Er kunnen geen todo's toegevoegd worden als er nog geen persoon is aangemaakt.
 							</ul>
 					</div>
 					<div data-role="collapsible" data-collapsed="true">
@@ -99,7 +103,7 @@
 					<ul>
 						<li><a href="#pageHome" class="homeWeergeven" data-icon="fahome" data-transition="none">Home</a>
 						<li><a href="#" class="persoonlijstWeergeven" data-icon="user" data-transition="none" onClick="showPersonen()">Personen</a>
-						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">To-do's</a>
+						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">Todo's</a>
 					</ul>
 				</div>
 			</div>
@@ -137,7 +141,7 @@
 					<ul>
 						<li><a href="#pageHome" class="homeWeergeven" data-icon="fahome" data-transition="none">Home</a>
 						<li><a href="#" class="persoonlijstWeergeven" data-icon="user" data-transition="none" onClick="showPersonen()">Personen</a>
-						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">To-do's</a>
+						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">Todo's</a>
 					</ul>
 				</div>
 			</div>
@@ -164,7 +168,7 @@
 					<ul>
 						<li><a href="#pageHome" class="homeWeergeven" data-icon="fahome" data-transition="none">Home</a>
 						<li><a href="#" class="persoonlijstWeergeven" data-icon="user" data-transition="none" onClick="showPersonen()">Personen</a>
-						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">To-do's</a>
+						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">Todo's</a>
 					</ul>
 				</div>
 			</div>
@@ -235,7 +239,7 @@
 					<ul>
 						<li><a href="#pageHome" class="homeWeergeven" data-icon="fahome" data-transition="none">Home</a>
 						<li><a href="#" class="persoonlijstWeergeven" data-icon="user" data-transition="none" onClick="showPersonen()">Personen</a>
-						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">To-do's</a>
+						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">Todo's</a>
 					</ul>
 				</div>
 			</div>
@@ -254,7 +258,7 @@
 					<ul>
 						<li><a href="#pageHome" class="homeWeergeven" data-icon="fahome" data-transition="none">Home</a>
 						<li><a href="#" class="persoonlijstWeergeven" data-icon="user" data-transition="none" onClick="showPersonen()">Personen</a>
-						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">To-do's</a>
+						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">Todo's</a>
 					</ul>
 				</div>
 			</div>
@@ -272,7 +276,7 @@
 					<ul>
 						<li><a href="#pageHome" class="homeWeergeven" data-icon="fahome" data-transition="none">Home</a>
 						<li><a href="#" class="persoonlijstWeergeven" data-icon="user" data-transition="none" onClick="showPersonen()">Personen</a>
-						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">To-do's</a>
+						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">Todo's</a>
 					</ul>
 				</div>
 			</div>
@@ -281,20 +285,20 @@
 		
 		
 	<!------------------------------------------------------------------------------------------------------------------------------------------------->
-	<!--																TO-DO TAB																	 -->
+	<!--																TODO TAB																	 -->
 	<!------------------------------------------------------------------------------------------------------------------------------------------------->
-	<!-- To-do Hoofd pagina -->
+	<!-- Todo Hoofd pagina -->
 		<div data-role="page" id="pageTodoHoofd" data-theme="f">
 			<div data-role="header" data-position="fixed" data-theme="f">
-				<h1>To-do's</h1>
+				<h1>Todo's</h1>
 				<a href="#pageTodoToevoeg" data-transition="none" data-icon="plus" data-iconpos="right" class="ui-btn-right">Nieuw</a>
 			</div>
 			<div data-role="content">
 				<div data-role="controlgroup">
-					<!--<a href="#pageTodoToevoeg" data-icon="plus" data-iconpos="right" data-role="button"data-transition="none">Nieuwe to-do toevoegen</a>-->
-					<a href="#" data-icon="list" data-iconpos="right" data-role="button"data-transition="none" onClick="showTodos('Onderhanden', 'Alle')">Onderhanden to-do's</a>
-					<a href="#" data-icon="list" data-iconpos="right" data-role="button"data-transition="none" onClick="showTodos('Afgehandelde', 'Alle')">Afgehandelde to-do's</a>
-					<a href="#" data-icon="list" data-iconpos="right" data-role="button"data-transition="none" onClick="showTodos('Alle', 'Alle')">Alle to-do's</a>
+					<!--<a href="#pageTodoToevoeg" data-icon="plus" data-iconpos="right" data-role="button"data-transition="none">Nieuwe todo toevoegen</a>-->
+					<a href="#" data-icon="list" data-iconpos="right" data-role="button"data-transition="none" onClick="showTodos('Onderhanden', 'Alle')">Onderhanden todo's</a>
+					<a href="#" data-icon="list" data-iconpos="right" data-role="button"data-transition="none" onClick="showTodos('Afgehandelde', 'Alle')">Afgehandelde todo's</a>
+					<a href="#" data-icon="list" data-iconpos="right" data-role="button"data-transition="none" onClick="showTodos('Alle', 'Alle')">Alle todo's</a>
 				</div>
 			</div>
 			<div data-role="footer" data-position="fixed" data-theme="f">
@@ -302,26 +306,26 @@
 					<ul>
 						<li><a href="#pageHome" class="homeWeergeven" data-icon="fahome" data-transition="none">Home</a>
 						<li><a href="#" class="persoonlijstWeergeven" data-icon="user" data-transition="none" onClick="showPersonen()">Personen</a>
-						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">To-do's</a>
+						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">Todo's</a>
 					</ul>
 				</div>
 			</div>
 		</div>
 		
-	<!-- To-do toevoeg pagina -->
+	<!-- Todo toevoeg pagina -->
 		<div data-role="page" id="pageTodoToevoeg" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
 			<div data-role="header" data-position="fixed" data-theme="f">
-				<h1>Nieuwe to-do</h1>
+				<h1>Nieuwe todo</h1>
 			</div>
 			<div data-role="content">
 				<p>
-					<b>Voeg hier een nieuwe to-do toe</b>
+					<b>Voeg hier een nieuwe todo toe</b>
 				</p>
 				<form id="formTodo" method="get" action="">
 				<fieldset>
 					<p>
 					<div data-role="fieldcontainer">
-						<label for="selectPersoon" class="select"><em>*</em>Persoon voor wie de to-do is:</label>
+						<label for="selectPersoon" class="select"><em>*</em>Persoon voor wie de todo is:</label>
 						<select name="selectPersoon" id="selectPersoon" class="required">
 						</select>
 					</div>
@@ -340,9 +344,8 @@
 					</p>
 					<p>
 					<div data-role="fieldcontainer">
-						<label for="datumOplevering"><em>*</em>Datum oplevering:</label>
-						<input name="datumOplevering" id="datumOplevering" type="date" data-role="datebox" class="required"
-						data-options='{"mode": "calbox", "afterToday": true, "useImmediate":true, "useButton": false, "useFocus": true, "useInlineBlind": true, "overrideDateFormat": "%d-%m-%Y", "overrideDateFieldOrder": ["d", "m", "y"], "calShowWeek": true }'>
+						<label for="datumOplevering"><em>*</em>Datum oplevering: </label>
+						<input id="datumOplevering" name="datumOplevering" "required placeholder="Vul hier de oplever datum in.." class="required" />
 					</div>
 					</p>
 					<p>
@@ -359,7 +362,7 @@
 					</p>
 					<p>
 					<div data-role="fieldcontainer">
-					<label for="type"><em>*</em>Prive of zakelijke to-do?</label>
+					<label for="type"><em>*</em>Prive of zakelijke todo?</label>
 						<select id="type" name="type" data-role="slider">
 						<option value="Prive">Prive</option>
 						<option value="Zakelijk">Zakelijk</option>
@@ -367,7 +370,7 @@
 					</div>	
 					</p>
 					<div>
-						<button class="buttonValidateTodo" type="submit" value="Submit" data-icon="check" data-iconpos="right">To-do toevoegen</button>
+						<button class="buttonValidateTodo" type="submit" value="Submit" data-icon="check" data-iconpos="right">Todo toevoegen</button>
 						<a id="buttonVoegTodoToe" href=#></a>
 					</div>
 				</fieldset>					
@@ -378,13 +381,13 @@
 					<ul>
 						<li><a href="#pageHome" class="homeWeergeven" data-icon="fahome" data-transition="none">Home</a>
 						<li><a href="#" class="persoonlijstWeergeven" data-icon="user" data-transition="none" onClick="showPersonen()">Personen</a>
-						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">To-do's</a>
+						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">Todo's</a>
 					</ul>
 				</div>
 			</div>
 		</div>
 		
-	<!-- To-do lijst pagina -->
+	<!-- Todo lijst pagina -->
 		<div data-role="page" id="pageTodoLijst" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
 			<div data-role="header" data-position="fixed" data-theme="f">
 				<h1 id="pageTodoLijstH1"></h1>
@@ -404,20 +407,20 @@
 					<ul>
 						<li><a href="#pageHome" class="homeWeergeven" data-icon="fahome" data-transition="none">Home</a>
 						<li><a href="#" class="persoonlijstWeergeven" data-icon="user" data-transition="none" onClick="showPersonen()">Personen</a>
-						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">To-do's</a>
+						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">Todo's</a>
 					</ul>
 				</div>
 			</div>
 		</div>
 		
-	<!-- To-do detail pagina -->
+	<!-- Todo detail pagina -->
 		<div data-role="page" id="pageTodoDetails" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
 			<div data-role="header" data-position="fixed" data-theme="f">
-				<h1>To-do details</h1>
+				<h1>Todo details</h1>
                 <div id="navgroup">
 					<div data-role="controlgroup" data-type="horizontal">
-                    <a id="buttonVerwijderTodo" href="#" data-role="button" data-iconpos="right" data-icon="delete">Verwijder to-do</a>
-                    <a id="buttonWijzigTodo" href="#" data-role="button" data-iconpos="right" data-icon="edit">Wijzig to-do</a>
+                    <a id="buttonVerwijderTodo" href="#" data-role="button" data-iconpos="right" data-icon="delete">Verwijder todo</a>
+                    <a id="buttonWijzigTodo" href="#" data-role="button" data-iconpos="right" data-icon="edit">Wijzig todo</a>
 					</div>
                 </div>
 
@@ -427,7 +430,7 @@
 
                 <div>
 					<a id="buttonOpenPlaats" href="#" data-role="button" data-iconpos="right" data-icon="map-marker">Open plaats van oplevering</a>
-					<a id="buttonTodoAfgehandeld" href="#" data-role="button" data-iconpos="right" data-icon="facheck">To-do afgehandeld</a>
+					<a id="buttonTodoAfgehandeld" href="#" data-role="button" data-iconpos="right" data-icon="facheck">Todo afgehandeld</a>
 				</div>
 			</div>
 			<div data-role="footer" data-position="fixed" data-theme="f">
@@ -435,13 +438,13 @@
 					<ul>
 						<li><a href="#pageHome" class="homeWeergeven" data-icon="fahome" data-transition="none">Home</a>
 						<li><a href="#" class="persoonlijstWeergeven" data-icon="user" data-transition="none" onClick="showPersonen()">Personen</a>
-						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">To-do's</a>
+						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">Todo's</a>
 					</ul>
 				</div>
 			</div>
 		</div>
 		
-	<!-- To-do Maps pagina -->
+	<!-- Todo Maps pagina -->
 		<div data-role="page" id="pageTodoMaps" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
 			<div data-role="header" data-position="fixed" data-theme="f">
 				<h1>Plaats oplevering</h1>
@@ -456,20 +459,20 @@
 					<ul>
 						<li><a href="#pageHome" class="homeWeergeven" data-icon="fahome" data-transition="none">Home</a>
 						<li><a href="#" class="persoonlijstWeergeven" data-icon="user" data-transition="none" onClick="showPersonen()">Personen</a>
-						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">To-do's</a>
+						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">Todo's</a>
 					</ul>
 				</div>
 			</div>
 		</div>
 		
-		<!-- To-do Wijzig pagina -->
+		<!-- Todo Wijzig pagina -->
 		<div data-role="page" id="pageTodoWijzig" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
 			<div data-role="header" data-position="fixed" data-theme="f">
-				<h1>Wijzig to-do</h1>
+				<h1>Wijzig todo</h1>
 			</div>
 			<div data-role="content">
 				<p>
-					<b>Hieronder kunt u informatie van een to-do wijzigen.</b>
+					<b>Hieronder kunt u informatie van een todo wijzigen.</b>
 				</p>
 				<form id="formTodoWijzig" method="get" action="" class="formTodoWijzig" data-name="">
 				<fieldset>
@@ -509,7 +512,7 @@
 					</p>
 					<p>
 					<div data-role="fieldcontainer">
-					<label for="typeWijzig"><em>*</em>Prive of zakelijke to-do?</label>
+					<label for="typeWijzig"><em>*</em>Prive of zakelijke todo?</label>
 						<select id="typeWijzig" name="typeWijzig" data-role="slider">
 						<option value="Prive">Prive</option>
 						<option value="Zakelijk">Zakelijk</option>
@@ -528,7 +531,7 @@
 					<ul>
 						<li><a href="#pageHome" class="homeWeergeven" data-icon="fahome" data-transition="none">Home</a>
 						<li><a href="#" class="persoonlijstWeergeven" data-icon="user" data-transition="none" onClick="showPersonen()">Personen</a>
-						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">To-do's</a>
+						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt" data-transition="none">Todo's</a>
 					</ul>
 				</div>
 			</div>
