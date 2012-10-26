@@ -25,7 +25,7 @@ function refreshPage(htmlInvoer, pageInvoer) //refresh the page when data is col
         var ul = content.find ("ul");
         ul.listview();
       });
-      $.mobile.changePage ($(pageInvoer), { transition: "none"});
+      $.mobile.changePage ($(pageInvoer));
 }
 
 
@@ -36,7 +36,7 @@ function succeeded(titleTextInvoer, buttonTextInvoer, callback) {
     callback();
     $(this).off("click.informatieDialog");
   });
-  $.mobile.changePage($("#informatieDialog"), { transition: "none"}); 
+  $.mobile.changePage($("#informatieDialog"));
 }
 
 
@@ -47,7 +47,7 @@ function areYouSure(titleTextInvoer, buttonTextInvoer, callback) {
     callback();
     $(this).off("click.bevestigDialog");
   });
-  $.mobile.changePage($("#bevestigDialog"), { transition: "none"});
+  $.mobile.changePage($("#bevestigDialog"));
 }
 
 

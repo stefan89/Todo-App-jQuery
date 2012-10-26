@@ -164,7 +164,7 @@ function showTodos(statusInvoer, typeInvoer)
 			var ul = content.find ("ul");
 			ul.listview ();
 		  });
-			$.mobile.changePage ($("#pageTodoLijst"), { transition: "none"});
+			$.mobile.changePage ($("#pageTodoLijst"));
 		}, error);
   });
 }
@@ -340,7 +340,7 @@ function showTodoDetails(todoIdInvoer)
         var ul = content.find ("ul");
         ul.listview ();
       });
-        $.mobile.changePage ($("#pageTodoDetails"), { transition: "none"});
+        $.mobile.changePage ($("#pageTodoDetails"));
 	}, error);
   });
 }
@@ -376,7 +376,7 @@ function wijzigTodo(todoIdInvoer)
 			$("#typeWijzig").val(type);
 			$("#todoIdWijzig").hide();
       });
-        $.mobile.changePage ($("#pageTodoWijzig"), { transition: "none"});
+        $.mobile.changePage ($("#pageTodoWijzig"));
 	}, error);
   });
 }
@@ -429,6 +429,6 @@ $("#pageTodoDetails").live('pageinit', function() { //Todo detailpagina button '
 				}
 			});
 		});	
-		$.mobile.changePage ($('#pageTodoMaps'), { transition: "none"});
+		$.mobile.changePage ($('#pageTodoMaps'));
 	}); 
 });
