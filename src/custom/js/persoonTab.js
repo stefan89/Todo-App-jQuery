@@ -109,3 +109,14 @@ function showPersoonDetails(emailInvoer)
     }, error);
   });
 }
+
+
+
+$('#pagePersoonToevoeg').live('pagebeforeshow', function () { //clear formfields
+//    $('#pagePersoonToevoeg').on('pageshow', function () {
+    $('#voorNaam').val("");
+    $('#achterNaam').val("");
+    $('#geboorteDatum').val("");
+    $('#email').val("");
+    $('#telefoonNummer').val("");
+});

@@ -1,7 +1,8 @@
 $(function(){  //mobiscroll datepicker
 	var datumVandaag = new Date(); 
 	var maximaleDatum = new Date(datumVandaag.getFullYear()+20, datumVandaag.getMonth(), datumVandaag.getDate());
-		$('#datumOplevering').scroller({preset: 'date', theme: 'default', display: 'modal', mode: 'scroller', dateOrder: 'yy mm dd', lang: 'de', minDate: datumVandaag, maxDate: maximaleDatum});    
+		$('#datumOplevering').scroller({preset: 'date', theme: 'default', display: 'modal', mode: 'scroller', dateOrder: 'yy mm dd', lang: 'de', minDate: datumVandaag, maxDate: maximaleDatum});
+        $('#datumOpleveringWijzig').scroller({preset: 'date', theme: 'default', display: 'modal', mode: 'scroller', dateOrder: 'yy mm dd', lang: 'de', minDate: datumVandaag, maxDate: maximaleDatum});
 });
 
 
@@ -17,7 +18,6 @@ $("#pageTodoToevoeg").on('pageshow', function()
     {
 		if (result.rows.length)
 		{
-			console.log("aa");
 			for (var i = 0; i < result.rows.length; i++) 
 			{
 				var row = result.rows.item (i);
@@ -27,7 +27,6 @@ $("#pageTodoToevoeg").on('pageshow', function()
 				
 				html += ('<option value="'+ email + '" class="dropDownBlk">'+ voorNaam + " " + achterNaam +'</option>');
 			}
-					console.log("bb");
 					$('#selectPersoon').html(html);
 					$("#selectPersoon").selectmenu('refresh', true); 
 		}
@@ -38,6 +37,10 @@ $("#pageTodoToevoeg").on('pageshow', function()
 		}
     }, error);
   });
+    $('#korteOmschrijving').val("");
+    $('#langeOmschrijving').val("");
+    $('#datumOplevering').val("");
+    $('#plaats').val("");
 });
 
 
@@ -432,3 +435,8 @@ $("#pageTodoDetails").live('pageinit', function() { //Todo detailpagina button '
 		$.mobile.changePage ($('#pageTodoMaps'));
 	}); 
 });
+
+
+//$('#pageTodoToevoeg').live('pagebeforeshow', function () { //clear formfields
+
+//});
