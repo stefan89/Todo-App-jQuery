@@ -6,9 +6,11 @@ $(function(){  //mobiscroll datepicker
 });
 
 
-$("#pageTodoToevoeg").on('pageshow', function()
+
+$("#pageTodoToevoeg").live('pagebeforeshow', function () //$("#pageTodoToevoeg").on('pageshow', function()
 {
   html = "";
+
   db.transaction (function (transaction) 
   {
     var sqlQuery = "SELECT * FROM persoon order by UPPER(achterNaam)";
@@ -28,19 +30,23 @@ $("#pageTodoToevoeg").on('pageshow', function()
 				html += ('<option value="'+ email + '" class="dropDownBlk">'+ voorNaam + " " + achterNaam +'</option>');
 			}
 					$('#selectPersoon').html(html);
-					$("#selectPersoon").selectmenu('refresh', true); 
-		}
+					$("#selectPersoon").selectmenu('refresh', true);
+
+                    $('#korteOmschrijving').val("");
+                    $('#langeOmschrijving').val("");
+                    $('#datumOplevering').val("");
+                    $('#plaats').val("");
+        }
 		else{
 			succeeded("Er dient eerst een persoon toegevoegd te worden!", "OK", function() {
-				$('.persoonlijstWeergeven').trigger('click');		
+                showPersonen();
+                $(".homeWeergeven").removeClass('ui-btn-active ui-state-persist');
+                $(".persoonlijstWeergeven").addClass('ui-btn-active ui-state-persist');
+                $(".todolijstWeergeven").removeClass('ui-btn-active ui-state-persist');
 			});
 		}
     }, error);
   });
-    $('#korteOmschrijving').val("");
-    $('#langeOmschrijving').val("");
-    $('#datumOplevering').val("");
-    $('#plaats').val("");
 });
 
 
