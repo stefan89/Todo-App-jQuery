@@ -6,7 +6,6 @@ $(function(){  //mobiscroll datepicker
 });
 
 
-
 $( "#formPersoon" ).validate({
     submitHandler: function(form) {
 		$('#buttonVoegPersoonToe').trigger('click');
@@ -15,25 +14,24 @@ $( "#formPersoon" ).validate({
 
 $("#buttonVoegPersoonToe").bind ("click", function (event)
 {
-  var voorNaam = $("#voorNaam").val();
-  var achterNaam = $("#achterNaam").val();
-  var geslacht = $("input[name='geslacht']:checked").val();
-  var geboorteDatum = $("#geboorteDatum").val();
-  var email = $("#email").val();
-  var telefoonNummer = $("#telefoonNummer").val();
+    var voorNaam = $("#voorNaam").val();
+    var achterNaam = $("#achterNaam").val();
+    var geslacht = $("input[name='geslacht']:checked").val();
+    var geboorteDatum = $("#geboorteDatum").val();
+    var email = $("#email").val();
+    var telefoonNummer = $("#telefoonNummer").val();
   
-  db.transaction (function (transaction) 
-  {
-    var sqlQuery = "INSERT INTO persoon (voorNaam, achterNaam, geslacht, geboorteDatum, email, telefoonNummer) VALUES (?, ?, ?, ?, ?, ?)";
-    transaction.executeSql (sqlQuery, [voorNaam, achterNaam, geslacht, geboorteDatum, email, telefoonNummer], function ()
-    { 
-	  succeeded("Succesvol toegevoegd!", "OK", function() {
-			showPersonen();
-		});
-    }, error);
-  });
+    db.transaction (function (transaction)
+    {
+        var sqlQuery = "INSERT INTO persoon (voorNaam, achterNaam, geslacht, geboorteDatum, email, telefoonNummer) VALUES (?, ?, ?, ?, ?, ?)";
+        transaction.executeSql (sqlQuery, [voorNaam, achterNaam, geslacht, geboorteDatum, email, telefoonNummer], function ()
+        {
+	        succeeded("Succesvol toegevoegd!", "OK", function() {
+			    showPersonen();
+		    });
+        }, error);
+    });
 });
-
 
 
 function showPersonen()
@@ -51,12 +49,11 @@ function showPersonen()
       {
         for (var i = 0; i < result.rows.length; i++) 
         {
-          var row = result.rows.item (i);
-          var voorNaam = row.voorNaam;
-          var achterNaam = row.achterNaam;
-		  var email = row.email;
-
-			html += "<li data-theme='c'" + "data-name="+ email + " class='listItem'>" +"<a href='#'>" +  "<h3>" + voorNaam + " " + achterNaam + "</h3><p>" + email + "</p></a></li>";	
+            var row = result.rows.item (i);
+            var voorNaam = row.voorNaam;
+            var achterNaam = row.achterNaam;
+		    var email = row.email;
+		    html += "<li data-theme='c'" + "data-name="+ email + " class='listItem'>" +"<a href='#'>" +  "<h3>" + voorNaam + " " + achterNaam + "</h3><p>" + email + "</p></a></li>";
 		}
       }
       else
@@ -65,11 +62,9 @@ function showPersonen()
       }
       html += "</ul>";
       refreshPage(html,"#pagePersoonLijst");
-	  //.val();
     }, error);
   });
 }
-
 
 
  $("#pagePersoonLijst").live('pageinit', function() {   //Haalt value van clicked listitem op
@@ -82,38 +77,36 @@ function showPersoonDetails(emailInvoer)
 {
   db.transaction (function (transaction) 
   {
-	var sqlQuery = "SELECT * FROM persoon where email =" + "'"+ emailInvoer +"'";
+    var sqlQuery = "SELECT * FROM persoon where email =" + "'"+ emailInvoer +"'";
 	
     transaction.executeSql (sqlQuery, undefined, 
 	function (transaction, result)
     {
-		  var row = result.rows.item (0);
-          var voorNaam = row.voorNaam;
-          var achterNaam = row.achterNaam;	
-		  var geslacht = row.geslacht;
-		  var geboorteDatum = row.geboorteDatum;
-		  var email = row.email;
-		  var telefoonNummer = row.telefoonNummer;
+	    var row = result.rows.item (0);
+        var voorNaam = row.voorNaam;
+        var achterNaam = row.achterNaam;
+		var geslacht = row.geslacht;
+		var geboorteDatum = row.geboorteDatum;
+		var email = row.email;
+		var telefoonNummer = row.telefoonNummer;
 	
-	  var html = "<p>Hieronder vind u detailinformatie van de geselecteerde persoon. </p>";
-	  html += "<ul data-role=" + "listview" + " data-inset=" + "true" + " data-theme='c'" +">";
-      html += "<li>" + "Voornaam: " + voorNaam + "</li>";
-	  html += "<li>" + "Achternaam: " + achterNaam + "</li>";
-	  html += "<li>" + "Geslacht: " + geslacht + "</li>";
-	  html += "<li>" + "Geboortedatum: " + geboorteDatum + "</li>";
-	  html += "<li>" + "Email: " + email + "</li>";
-	  html += "<li>" + "Telefoonnummer: " + telefoonNummer + "</li>";
-	  html += "</ul>";
-	  
-	  refreshPage(html,"#pagePersoonDetails");
+	    var html = "<p>Hieronder vind u detailinformatie van de geselecteerde persoon. </p>";
+	    html += "<ul data-role=" + "listview" + " data-inset=" + "true" + " data-theme='c'" +">";
+        html += "<li>" + "Voornaam: " + voorNaam + "</li>";
+	    html += "<li>" + "Achternaam: " + achterNaam + "</li>";
+	    html += "<li>" + "Geslacht: " + geslacht + "</li>";
+	    html += "<li>" + "Geboortedatum: " + geboorteDatum + "</li>";
+	    html += "<li>" + "Email: " + email + "</li>";
+	    html += "<li>" + "Telefoonnummer: " + telefoonNummer + "</li>";
+	    html += "</ul>";
+
+        refreshPage(html,"#pagePersoonDetails");
     }, error);
   });
 }
 
 
-
 $('#pagePersoonToevoeg').live('pagebeforeshow', function () { //clear formfields
-//    $('#pagePersoonToevoeg').on('pageshow', function () {
     $('#voorNaam').val("");
     $('#achterNaam').val("");
     $('#geboorteDatum').val("");

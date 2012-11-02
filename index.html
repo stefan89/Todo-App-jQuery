@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
 		<head>
-            <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
             <meta name="apple-mobile-web-app-capable" content="yes" />
 			<meta name="apple-mobile-web-app-status-bar-style" 	content="black"> <!-- maakt status bar zwart voor iOS devices -->
             <title>Todo App Stefan - JQM</title>
@@ -59,7 +59,6 @@
 		<div data-role="page" id="pageOver" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
 			<div data-role="header" data-position="fixed" data-theme="f">
 				<h1>Over app</h1>
-				<a href="#pageMeerOver" data-icon="info" class="ui-btn-right">Meer info</a>
 			</div>
 			<div data-role="content">
 				<div data-role="collapsible-set">
@@ -99,45 +98,7 @@
 				</div>
 			</div>
 		</div>
-		
-		<!-- Over pagina -->
-		<div data-role="page" id="pageMeerOver" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
-			<div data-role="header" data-position="fixed" data-theme="f">
-				<h1>Meer info</h1>
-			</div>
-			<div data-role="content">
-				<div data-role="collapsible" data-collapsed="true">
-					<h2>Tekst 1</h2>
-						<p class="pageHomeTekst"></p>
-				</div>
-				<div data-role="collapsible" data-collapsed="true">
-					<h2>Tekst 2</h2>
-						<p class="pageHomeTekst"></p>
-				</div>
-				<div data-role="collapsible" data-collapsed="true">
-					<h2>Tekst 3</h2>
-						<p class="pageHomeTekst"></p>
-				</div>
-				<div data-role="collapsible" data-collapsed="true">
-					<h2>Tekst 4</h2>
-						<p class="pageHomeTekst"></p>
-				</div>
-				<div data-role="collapsible" data-collapsed="true">
-					<h2>Tekst 5</h2>
-						<p class="pageHomeTekst"></p>
-				</div>
-			</div>
-			<div data-role="footer" data-position="fixed" data-theme="f">
-				<div data-role="navbar">
-					<ul>
-						<li><a href="#pageHome" class="homeWeergeven" data-icon="fahome">Home</a>
-						<li><a href="#" class="persoonlijstWeergeven" data-icon="user" onClick="showPersonen()">Personen</a>
-						<li><a href="#pageTodoHoofd" class="todolijstWeergeven" data-icon="list-alt">Todo's</a>
-					</ul>
-				</div>
-			</div>
-		</div>
-		
+
 	<!-- Reset pagina -->
 		<div data-role="page" id="pageReset" data-theme="f" data-add-back-btn="true" data-back-btn-text="Terug">
 			<div data-role="header" data-position="fixed" data-theme="f">
@@ -164,9 +125,7 @@
 				</div>
 			</div>
 		</div>
-		
-		
-		
+
 	<!------------------------------------------------------------------------------------------------------------------------------------------------->
 	<!--																PERSOON TAB																 	 -->
 	<!------------------------------------------------------------------------------------------------------------------------------------------------->		
@@ -272,9 +231,7 @@
 				</div>
 			</div>
 		</div>
-		
-		
-		
+
 	<!------------------------------------------------------------------------------------------------------------------------------------------------->
 	<!--																TODO TAB																	 -->
 	<!------------------------------------------------------------------------------------------------------------------------------------------------->
@@ -508,8 +465,7 @@
 				</div>
 			</div>
 		</div>
-		
-		
+
 		<!------------------------------------------------------------------------------------------------------------------------------------------------->
 		<!--																DIALOGS																	 	 -->
 		<!------------------------------------------------------------------------------------------------------------------------------------------------->

@@ -15,7 +15,6 @@ $('.persoonlijstWeergeven').bind("click", function (event) { //zet navigationbar
  });
 
 
-
 function refreshPage(htmlInvoer, pageInvoer) //refresh the page when data is collected    	//Pagina opbouw veranderen en tonen
 {
       $(pageInvoer).unbind ().bind ("pagebeforeshow", function ()
@@ -29,7 +28,6 @@ function refreshPage(htmlInvoer, pageInvoer) //refresh the page when data is col
 }
 
 
-
 function succeeded(titleTextInvoer, buttonTextInvoer, callback) {
   $("#informatieDialog .informatieDialogH3Text").text(titleTextInvoer);
   $("#informatieDialog .informatieDialog-do").text(buttonTextInvoer).on("click.informatieDialog", function() {
@@ -38,7 +36,6 @@ function succeeded(titleTextInvoer, buttonTextInvoer, callback) {
   });
   $.mobile.changePage($("#informatieDialog"));
 }
-
 
 
 function areYouSure(titleTextInvoer, buttonTextInvoer, callback) {
@@ -51,11 +48,9 @@ function areYouSure(titleTextInvoer, buttonTextInvoer, callback) {
 }
 
 
-
 function ok ()
 {
 }
-
 
 
 function error (transaction, err) 
@@ -63,9 +58,3 @@ function error (transaction, err)
   alert ("DB error : " + err.message);
   return false;
 }
-
-
-
-$(document).bind("mobileinit", function(){ //Back button fix for Android devices 
-        $.mobile.pushStateEnabled = false; 
-});
