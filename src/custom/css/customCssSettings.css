@@ -23,7 +23,9 @@ label.error {
 
 em { color: red; font-weight: bold; padding-right: .25em; }
 
-
+.todoHoofdButton{
+height: 50px;
+}
 
 
 
